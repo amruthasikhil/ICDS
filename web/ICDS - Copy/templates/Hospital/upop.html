@@ -1,0 +1,53 @@
+{% extends "Hospital/hospital index.html" %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/updateop" onSubmit="return validate()">
+<center>  OP  ARRANGING</center>
+<table width="447" height="335" border="0" align="center">
+  <tr>
+    <td width="92" height="48">Staff</td>
+    <td width="162"><select name="select1" id="select" class="form-control" >
+        <option value="{{ data[4] }}">{{ data[3] }}</option>
+        {% for d in data1 %}
+        <option value="{{ d[0] }}">{{ d[3] }}</option>
+        {% endfor %}
+    </select></td>
+  </tr>
+  <tr>
+    <td height="36">Date</td>
+    <td><label for="textfield"></label>
+      <input type="date" name="date" id="textfield" value="{{ data[0] }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td height="36">From (AM)or(PM)</td>
+    <td><label for="textfield2"></label>
+      <input type="text" name="frm" id="textfield2" value="{{ data[1] }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td height="36">To (AM)or(PM)</td>
+    <td><label for="textfield3"></label>
+      <input type="text" name="to" id="textfield3" value="{{ data[2] }}" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td height="45" colspan="2"><center>
+      <input type="submit" name="button" id="button" value="Update" class="btn btn-success"/>
+    </center></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>
+{#     <script type="text/javascript" language="JavaScript">#}
+{#    function validate() {#}
+{#       flag=true;#}
+{##}
+{#     if(document.getElementById("dt").value!==""){#}
+{#        alert('Successfully updated');#}
+{##}
+{#    }#}
+{#     return flag;#}
+{#    }#}
+</script>
+{% endblock %}

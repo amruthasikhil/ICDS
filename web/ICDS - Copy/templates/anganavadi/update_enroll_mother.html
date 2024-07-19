@@ -1,0 +1,187 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+
+
+<body>
+<form action="/updats" method="post" enctype="multipart/form-data" onsubmit="return valid()" name="form1" id="form1">
+  <table width="464" height="527" border="0">
+    <tr>
+      <th colspan="2">MOTHER DETAILS</td>
+    </tr>
+    <tr>
+      <td width="157">Name</td>
+      <td width="220"><p>
+        <input type="text" name="name" id="textfield" class="form-control" value="{{ data[1] }}" required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>Date of birth</td>
+      <td><p>
+        <input type="date" name="dob" id="textfield2" class="form-control"  value="{{ data[2] }}" required />
+      </p></td>
+    </tr>
+    <tr>
+      <td>Blood Group</td>
+      <td><p>
+        <select name="select" id="select" class="form-control">
+          <option value="{{ data[3] }}">{{ data[3] }}</option>
+                    <option value="select">select</option>
+
+          <option value="O+ve">O+ve</option>
+          <option value="A+ve">A+ve</option>
+          <option value="B+ve">B+ve</option>
+          <option value="AB+ve">AB+ve</option>
+          <option value="O-ve">O-ve</option>
+          <option value="A-ve">A-ve</option>
+          <option value="B-ve">B-ve</option>
+          <option value="AB-ve">AB-ve</option>
+          
+        </select>
+      </p></td>
+    </tr>
+    <tr>
+      <td>Height in cm</td>
+      <td><p>
+        <input type="number" name="hg" id="textfield12" class="form-control" value="{{ data[4] }}" required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>Weight in kg</td>
+      <td><p>
+        <input type="number" name="wg" id="textfield13" class="form-control" value="{{ data[5] }}" required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>Aadhar No</td>
+      <td><p>
+        <input type="number" name="aad" id="aid"  class="form-control" value="{{ data[6] }}" required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>Occupation</td>
+      <td><p>
+        <input type="text" name="job" id="textfield7"  class="form-control" value="{{ data[7] }}" required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>Husbend name</td>
+      <td><p>
+        <input type="text" name="husnm" id="textfield8" class="form-control" value="{{ data[8] }}" required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>Husbend Aadhar No</td>
+      <td><p>
+        <input type="number" name="husaad" id="hd" class="form-control" value="{{ data[9] }}" required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>Husbend Occupation</td>
+      <td><p>
+        <input type="text" name="husjob" id="textfield9" class="form-control" value="{{ data[10] }}" required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>House name</td>
+      <td><p>
+        <label for="textfield3"></label>
+        <input type="text" name="hname" id="textfield3" class="form-control" value="{{ data[11] }}" required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>Post office</td>
+      <td><p>
+        <label for="textfield4"></label>
+        <input type="text" name="post" id="textfield4" class="form-control" value="{{ data[12] }}" required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td><p>
+        <label for="textfield3"></label>
+        <input type="text" name="dist" id="textfield3" class="form-control" value="{{ data[18] }}" required/>
+      </p></td>
+    </tr>
+      <tr>
+      <td>Pin</td>
+      <td><p>
+        <label for="textfield3"></label>
+        <input type="number" name="pin" id="pin" class="form-control" value="{{ data[13] }}" required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><p>
+        <label for="textfield3"></label>
+        <input type="text" name="state" id="textfield3" class="form-control" value="{{ data[14] }}" required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><p>
+        <label for="textfield5"></label>
+        <input type="email" name="em" id="textfield5" class="form-control" value="{{ data[15] }}"required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><p>
+        <label for="textfield6"></label>
+        <input type="number" name="ph" id="ph" class="form-control" value="{{ data[16] }}" required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><p>
+        <label for="textfield3"></label>
+        
+        <input type="file" name="pic" class="form-control" id="fileField" value="" />
+      </p>
+      </tr>
+    <tr>
+      <td colspan="2"><center><input type="submit" name="button" id="button" value="Update" /></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+    <script type="text/javascript" language="JavaScript">
+    function valid() {
+        var flag=true;
+        var y=document.getElementById("select").value;
+        if(y=='select'){
+            alert("select your bloodgroup")
+            flag=false;
+        }
+
+     else  if(document.getElementById("aid").value.length!=13)
+	{
+	     window.alert("Enter your valid  aadhar no")
+		flag= false;
+     }
+
+	else if(document.getElementById("hd").value.length!=13)
+	{
+	     window.alert("Enter a valid  aadhar no")
+		flag= false;}
+
+     else if(document.getElementById("pin").value.length!=6)
+    {
+        window.alert("pin no is not valid")
+        flag=false;
+    }
+
+
+
+     else if (document.getElementById("ph").value.length != 10) {
+            window.alert("phone no is not valid")
+            flag = false;
+        }
+        else {
+        }
+
+
+        return flag;
+    }
+</script>
+{% endblock %}

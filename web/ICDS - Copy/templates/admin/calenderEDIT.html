@@ -1,0 +1,31 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/updatecalender">
+  <table width="388" height="268" border="0" align="center">
+    <tr>
+      <th colspan="2">ADD CALENDER </th>
+    </tr>
+    <tr>
+      <td height="40" >Date</td>
+      <td><label for="textfield2"></label>
+        <input type="date" name="date" id="textfield2" value="{{ data[1] }}" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td height="41">Program</td>
+      <td><label for="textfield2"></label>
+        <input type="text" name="pgm" id="textfield2"  value="{{ data[2] }}" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td>Details</td>
+      <td><label for="textarea"></label>
+        <textarea name="det" id="textarea" cols="45" class="form-control" rows="5">{{ data[3] }}</textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2"><center>
+        <input type="submit" name="button" id="button" value="UPDATE" class="btn btn-success"/>
+      </center></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
+

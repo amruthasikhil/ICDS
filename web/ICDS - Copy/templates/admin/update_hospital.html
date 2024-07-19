@@ -1,0 +1,104 @@
+{% extends "admin/index.html" %}
+{% block body %}
+    {% if h==1 %}
+          <div class="alert success">
+  <span class="closebtn" onclick="this.parentElement.style.display='none'; ">&times;</span>
+   <p>Please specify the correct informations</p>
+</div>
+        {% endif %}
+<form id="form1" name="form1" method="post" action="/hospitalupdated" onsubmit="return valid()">
+  <table class="table">
+    <tr>
+        <th colspan="2"><h3>HOSPITAL DETAILS</h3></td>
+    </tr>
+    <tr>
+      <td width="148" height="59">Name</td>
+      <td>
+      <input type="text" name="name" id="nm"  value="{{ data[1] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="61">Licence no</td>
+      <td><input type="number" name="lno" id="ln"  value="{{ data[2] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="58">Owner name</td>
+      <td><input type="text" name="ownname" id="ow"  value="{{ data[3] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="55">Year of establishment</td>
+      <td><input type="number" name="yr" id="yr"  value="{{ data[4] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="52">Place</td>
+      <td>
+      <input type="text" name="place" id="pl"  value="{{ data[5] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="59">Post</td>
+      <td>
+      <input type="text" name="post" id="pt" value="{{ data[6] }}" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td height="53">Pin</td>
+      <td>
+      <input type="number" name="pin" id="pi" value="{{ data[7] }}" class="form-control" required/></td>
+    </tr>
+{#    <tr>#}
+{#      <td height="55">Email</td>#}
+{#      <td><label for="textfield5"></label>#}
+{#      <input type="email" name="em" id="em" value="{{ data[8] }}" class="form-control" required/></td>#}
+{#    </tr>#}
+    <tr>
+      <td height="51">Phone</td>
+      <td>
+      <input type="number" name="ph" id="ph" value="{{ data[9] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><center><input type="submit" name="button" id="button" value="UPDATE" class="btn btn-success"/></center></td>
+    </tr>
+  </table>
+</form>
+{#      <script src="/static/jquery.min.js" ></script>#}
+{#<script>#}
+{#    $(document).ready(function () {#}
+{#        $("#button").click(function () {#}
+{#            alert('Updated....!!!')#}
+{#        });#}
+{#    });#}
+{#</script>#}
+
+     <script type="text/javascript" language="JavaScript">
+    function valid() {
+        var flag = true;
+
+
+        if(document.getElementById("ln").value.length!=5) {
+             window.alert("Please enter a valid  licence no")
+             flag = false;
+         }
+
+          else if(document.getElementById("yr").value.length!=4) {
+
+                window.alert("please enter the correct year")
+                flag = false;
+            }
+          else if(document.getElementById("pi").value.length!=6) {
+
+                window.alert("pin no is not valid")
+                flag = false;
+            }
+
+
+
+          else if(document.getElementById("ph").value.length!=10){
+            window.alert("phone no is not valid")
+             flag=false;
+         }
+        else {
+        }
+
+        return flag;
+    }
+
+</script>
+{% endblock %}

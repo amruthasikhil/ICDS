@@ -1,0 +1,52 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="426" border="0"  class="table table-striped mb30">
+    <tr>
+        {% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+            <tH colspan="5"><h3>VIEW NOTIFICATION</h3></td>
+    </tr>
+
+    <tr>
+      <td width="36">Sl.No</td>
+      <td width="49">Date</td>
+        <td width="59">Subject</td>
+      <td width="69">Message</td>
+
+      <td width="53">&nbsp;</td>
+    </tr>
+    <tr>
+        {% for d in data %}
+      <td>{{ loop.index }}</td>
+      <td>&nbsp;{{ d[4] }}</td>
+
+      <td>&nbsp;{{ d[1] }}</td>
+            <td>&nbsp;{{ d[2] }}</td>
+
+      <td><a href="/deletenote/{{ d[0] }}" onclick="return msg()" class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+  {% endif %}
+  </table>
+</form>
+</body>
+</html>
+     <script type="text/javascript" language="JavaScript">
+    function msg() {
+        var flag=true;
+         var a=confirm("wants to delete");
+        if(a==true){
+            flag=true;
+        }
+        else {
+            flag=false
+
+        }
+      return flag;
+    }
+</script>
+{% endblock %}

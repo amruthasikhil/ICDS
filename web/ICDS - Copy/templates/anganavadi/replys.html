@@ -1,0 +1,58 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <center><th colspan="4">SOLUTIONS</td></th></center>
+  <table width="526" border="0" class="table table-striped mb30">
+    
+    {% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+
+    
+    <tr>
+      <td width="68">Sl no</td>
+      <td width="200">Date</td>
+      <td width="250">Complaint</td>
+             <td width="250">Status</td>
+      <td width="197">Replay</td>
+      <td width="171">&nbsp;</td>
+    </tr>
+    <tr>
+        {% for d in data %}
+               <td>&nbsp;{{ loop.index }}</td>
+      <td>{{ d[3] }}&nbsp;</td>
+      <td>&nbsp;{{ d[1] }}</td>
+                        <td>{{ d[4] }} </td>
+            {% if d[4]=='seen' %}
+                <td><a href="/sreplys/{{ d[0] }}" class="btn btn-info">View reply </a></td>
+             {% else %}
+
+            <td>wait for the reply</td>
+                        {% endif %}
+            <td>                <td><a href="/deleting/{{ d[0] }}" class="btn btn-danger" onclick="return msg()">Delete</a></td>
+</td>
+{#            <td><a href="/deleting/{{ d[0] }}"></a></td><input type="submit" name="button" id="button" value="Delete" onclick="alert('Confirm...?')" /></a></td>#}
+    </tr>
+      {% endfor %}
+  {% endif %}
+  </table>
+</form>
+</body>
+</html>
+       <script type="text/javascript" language="JavaScript">
+    function msg() {
+        var flag=true;
+         var a=confirm("wants to delete");
+        if(a==true){
+            flag=true;
+        }
+        else {
+            flag=false
+
+        }
+      return flag;
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "Hospital/hospital index.html" %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/adding" onsubmit="return validate()">
+  <table class="table">
+    <tr>
+        <tH colspan="2"><h3>ADD DEPARTMENT</h3></td>
+    </tr>
+    <tr>
+      <td width="15%"> Department</td>
+      <td><input type="text" name="dept" id="dt" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td></td><td><input type="submit" name="button" id="button" value="Add" class="btn btn-success"/></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+    <script type="text/javascript" language="JavaScript">
+    function validate() {
+       flag=true;
+
+     if(document.getElementById("dt").value!==""){
+        alert('Successfully added');
+
+    }
+     return flag;
+    }
+</script>
+{% endblock %}

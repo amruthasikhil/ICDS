@@ -1,0 +1,26 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+
+<body>
+<form action="/substituting" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="400" height="236" border="0" >
+    <tr>
+      <th colspan="2">ADDING CHILD PHOTOS
+        </td>
+    </tr>
+    <tr>
+      <td width="157">Photo</td>
+      <td width="220"><p>
+        <label for="textfield3"></label>
+        
+        <input type="file" name="pic" id="fileField" class="form-control" required/>
+      </p>
+    </tr>
+    <tr>
+      <td colspan="2"><center><input type="submit" name="button" id="button" value="ADD PHOTO" class="btn btn-success" /></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,189 @@
+{% extends "healthcenter/health index.html" %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+<center>
+  <p>DUTY ALLOCATION REPORT</p>
+{#    {% if data|length==0 %}#}
+{#      <h5><b><center>Sorry No items found</center></b></h5>#}
+{#  {% else %}#}
+
+  <table width="608" border="0" class="table table-striped mb30">
+    <tr>
+      <td width="598"><center>
+        <p>Date:
+          <input type="date" name="d1" id="d1" required />
+          To:<input type="date" name="d2" id="d2"  required/>
+          Staff Name        
+          <select name="select" id="select">
+              {% for d in data %}
+              <option value="{{ d[0] }}">{{ d[3] }}</option>
+              {% endfor %}
+          </select>
+        </p>
+        <p>
+{#          <input type="submit" name="button" id="button" value="Search" />#}
+        </p>
+      </center></td>
+      </tr>
+  </table>
+  <p>&nbsp;</p>
+</center></th>
+    </tr>
+    <center><h5 id="item">Sorry no items found</h5></center>
+
+  <table width="612" border="0" align="center" name="nn" id="nn" class="table table-striped mb30">
+{#    #}
+{#    <tr>#}
+{#      <th width="27" scope="col">#</th>#}
+{#      <th width="114" scope="col">Vaccination info</th>#}
+{#      <th width="37" scope="col">Date</th>#}
+{#      <th width="73" scope="col">Staff name</th>#}
+{#      <th width="82" scope="col">Child name</th>#}
+{##}
+{#      <th width="57" scope="col">Venue</th>#}
+{#      <th width="119" scope="col">&nbsp;</th>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        {% for d in data %}#}
+{#      <td height="50"><label for="textfield"></label>{{ loop.index }}</td>#}
+{#      <td><label for="textarea">{{ d[0] }}</label></td>#}
+{#      <td>{{ d[1] }}&nbsp;</td>#}
+{#      <td>{{ d[2] }}&nbsp;</td>#}
+{#      <td>&nbsp;{{ d[3] }}</td>#}
+{#      <td>&nbsp;{{ d[4] }}</td>#}
+{#      <td><a href="/dutyreportmore/{{ d[5] }}">View more</a></td>#}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#  {% endif %}#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+        <script src="/static/jquery.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $("#item").hide();
+
+        $.ajax({
+            url: "/dutyreport",
+            method: 'post',
+            data: {},
+            success: function (response) {
+                var len = response.length;
+                $("#nn").text("");
+
+                var  c=1
+                $("#nn").append('<th width="27" scope="col">#</th> <th width="114" scope="col">Vaccination info</th> <th width="112" scope="col">Date</th> <th width=123" scope="col">Staff name</th> <th width="100" scope="col">Child name</th> <th width="57" scope="col">Venue</th>');
+                for (i = 0; i <= len; i++) {
+                    var vname = response[i]['vname'];
+                    var date = response[i]['date'];
+                    var sname = response[i]['sname'];
+                    var cname = response[i]['cname'];
+                    var venuetype = response[i]['anguname'];
+
+                    $("#nn").append('<tr><td>' + c + '</td><td>' + vname + '</td><td>' + date + '</td><td>' + sname + '</td><td>'+cname+'</td><td>' + venuetype + '</td><tr>')
+
+                   c=c+1
+                }
+            },error:function (error) {
+
+            }
+
+        });
+    });
+
+        $('#select').change(function () {
+            res1 = $(this).val();
+
+            $.ajax({
+                url: "/dutyreportbystaff",
+                method: 'post',
+                data: {select: res1},
+                success: function (response) {
+                    var len = response.length;
+                    if (response.length==0){
+                        $("#nn").text("");
+                         $("#item").show();
+
+                    }
+                    else {
+                        $("#nn").text("");
+
+                        var c = 1
+                        $("#nn").append('<th width="27" scope="col">#</th> <th width="114" scope="col">Vaccination info</th> <th width="112" scope="col">Date</th> <th width=123" scope="col">Staff name</th> <th width="100" scope="col">Child name</th> <th width="57" scope="col">Venue</th>');
+
+
+
+                            var vname = response[i]['vname'];
+                            var date = response[i]['date'];
+                            var sname = response[i]['sname'];
+                            var cname = response[i]['cname'];
+                            var venuetype = response[i]['anguname'];
+
+                            $("#nn").append('<tr><td>' + c + '</td><td>' + vname + '</td><td>' + date + '</td><td>' + sname + '</td><td>' + cname + '</td><td>' + venuetype + '</td><tr>')
+
+                            $("#item").hide();
+
+                            c = c + 1
+
+                        }}
+            },error:function (error) {
+
+                }
+
+            });
+
+        });
+
+         $("#d2").change(function () {
+                    res1=$(this).val();
+                    res2=$("#d1").val();
+            $.ajax({
+                url: "/dutyreportmoredate",
+                method: 'post',
+                data: {d1:res1,d2:res2},
+                success: function (response) {
+                    var len = response.length;
+                    var len = response.length;
+                     if (response.length==0){
+                        $("#nn").text("");
+                         $("#item").show();
+
+                    }
+                    else{
+                     $("#nn").text("");
+
+                        var c = 1
+                        $("#nn").append('<th width="27" scope="col">#</th> <th width="114" scope="col">Vaccination info</th> <th width="112" scope="col">Date</th> <th width=123" scope="col">Staff name</th> <th width="100" scope="col">Child name</th> <th width="57" scope="col">Venue</th>');
+
+                        for (i = 0; i <= len; i++) {
+
+                            var vname = response[i]['vname'];
+                            var date = response[i]['date'];
+                            var sname = response[i]['sname'];
+                            var cname = response[i]['cname'];
+                            var venuetype = response[i]['anguname'];
+
+                            $("#nn").append('<tr><td>' + c + '</td><td>' + vname + '</td><td>' + date + '</td><td>' + sname + '</td><td>' + cname + '</td><td>' + venuetype + '</td><tr>')
+
+                            $("#item").hide();
+
+                            c = c + 1
+
+                        }}
+
+                },error:function (error) {
+
+                }
+            }) ;
+
+
+
+
+    });
+
+    </script>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/hospitalselect" >
+     <th colspan="11"><h3>HOSPITALS DETAILS</h3></center></th>
+
+
+  <table class="pull-right" >
+   
+    <tr>
+      <td colspan="3"><center><input type="text" name="name" id="mm" class="form-control" />
+      <td colspan="8">
+          <input type="submit" name="button" id="button" value="Search" class="btn btn-search" onsubmit="return valid()"/></td>
+    </tr>
+
+  </table>
+
+    <br>
+    <br>
+    <br>
+    <table class="table table-striped mb30">
+    <tr>
+        <tr>
+          {% if data22|length==0 %}
+      <h5><b>Sorry No items found</b></h5>
+  {% else %}
+      </tr>
+              <tr>
+      <th width="16">#</th>
+      <th width="78">Name</td>
+      <th width="86">Licence no</td>
+      <th width="88">Owner name</td>
+      <th width="52">Place</td>
+      <th width="56">Phone</td>
+      <th width="40">Post</td>
+      <th width="48">Pin</td>
+      <th width="45">Email</td>
+      <th width="42">&nbsp;</td>
+      <th width="91">&nbsp;</td>
+    </tr>
+    <tr>
+        {% for d in data22 %}
+      <td id="k">{{ loop.index }}</td>
+      <td>{{ d[1] }}</td>
+      <td>{{ d[2] }}</td>
+      <td>{{d[3] }}</td>
+      <td>{{ d[5] }}</td>
+      <td>{{ d[9] }}</td>
+      <td>{{ d[6] }}</td>
+      <td>{{ d[7] }}</td>
+            <td>{{ d[8] }}</td>
+     <td><a href="/hospitaledit/{{ d[10] }}" class="btn btn-info">Edit</a></td>
+      <td><a href="/hospitaldelete/{{ d[10] }}"  onclick="return msg()" class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+  {% endif %}
+
+  </table>
+</form>
+{##}
+{#         <script src="/static/jquery.min.js" ></script>#}
+{#<script>#
+{#   $('.delete').click(function (event) {#}
+{#       event.preventDefault();#}
+{#       var a=confirm("Are you sure you want to delete")#}
+{#       if (a==true)#}
+{#       {#}
+{#           window.location=$(this).delete('href');#}
+{#           window.location.href='/hospitaldelete'#}
+{#       }#}
+{#   });#}
+{#    </script>#}
+
+     <script type="text/javascript" language="JavaScript">
+    function msg() {
+        var flag=true;
+         var a=confirm("Are you sure...?");
+        if(a==true){
+            flag=true;
+        }
+        else {
+            flag=false
+
+        }
+      return flag;
+    }
+</script>
+{% endblock %}

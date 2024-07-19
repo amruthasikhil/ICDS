@@ -1,0 +1,134 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/healthupdates" onsubmit="return valid()">
+  <table class="table" >
+    <tr>
+        <h3>HEALTH CENTER DETAILS</h3>
+        </td>
+      </p>
+    </tr>
+    <tr>
+      <td width="114" height="50">Name </td>
+      <td>
+      <input type="text" name="name" id="textfield"  value="{{ data[2] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="48">Licence no</td>
+      <td><input type="number" name="lno" id="ln"  value="{{ data[3] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="43">Place</td>
+      <td>
+      <input type="text" name="place" id="textfield"  value="{{ data[4] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="43">Post</td>
+      <td>
+      <input type="text" name="post" id="textfield"  value="{{ data[5] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="44">Pin</td>
+      <td>
+      <input type="number" name="pin" id="pn"  value="{{ data[6] }}" class="form-control" required/></td>
+    </tr>
+{#    <tr>#}
+{#      <td height="48">Email</td>#}
+{#      <td><label for="textfield"></label>#}
+{#      <input type="email" name="em" id="textfield"  value="{{ data[7] }}" class="form-control" required/></td>#}
+{#    </tr>#}
+    <tr>
+      <td height="52">Phone</td>
+      <td>
+      <input type="number" name="ph" id="ph"  value="{{ data[8] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+        <td></td><td><input type="submit" name="button" id="button" value="UPDATE" class="btn btn-success"/></center></td>
+    </tr>
+  </table>
+</form>
+<script type="text/javascript" language="JavaScript">
+    function valid() {
+        var flag = true;
+{##}
+{#        if (document.getElementById("nm").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter your name")#}
+{#            flag = false;#}
+{#        }#}
+{#        else {#}
+            {#	document.getElementById("a").style.visibility="hidden";#}
+{#        }#}
+{##}
+{#         if (document.getElementById("ln").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter the licence no")#}
+{#            flag = false;#}
+{#        }#}
+         if (document.getElementById("ln").value.length!=5){
+            window.alert("licence no is not valid")
+             flag=false;
+         }
+
+{#         if (document.getElementById("ps").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter your post")#}
+{#            flag = false;#}
+{#        }#}
+{#        else {#}
+            {#	document.getElementById("a").style.visibility="hidden";#}
+{#        }#}
+
+{#         if (document.getElementById("pt").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter your post")#}
+{#            flag = false;#}
+{#        }#}
+{#        else {#}
+            {#	document.getElementById("a").style.visibility="hidden";#}
+{#        }#}
+
+
+         else if(document.getElementById("pn").value.length!=6){
+            window.alert("pin no is not valid")
+             flag=false;
+         }
+
+{#         if (document.getElementById("ph").value == "") {#}
+             {#		document.getElementById("a").style.visibility="visible";#}
+{#             window.alert("Please enter your phone no")#}
+{#             flag = false;#}
+{#         }#}
+            else if(document.getElementById("ph").value.length!=10){
+                window.alert(" phone no is not valid")
+             flag=false;
+             }
+
+            {#	document.getElementById("a").style.visibility="hidden";#}
+
+{#if (document.getElementById("nm").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter your name")#}
+{#            flag = false;#}
+{#        }#}
+{#        else {#}
+            {#	document.getElementById("a").style.visibility="hidden";#}
+{#        }#}
+
+{#         if (document.getElementById("nm").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter your name")#}
+{#            flag = false;#}
+{#        }#}
+{#        else {#}
+            {#	document.getElementById("a").style.visibility="hidden";#}
+{#        }#}
+{##}
+{#        if ((document.getElementById("nm").value != "")&&(document.getElementById("ln").value != "")&&(document.getElementById("ps").value != "")&&(document.getElementById("pt").value != "")&&(document.getElementById("pi").value != "")&&(document.getElementById("ph").value != "")&&(document.getElementById("em").value != "")&&(document.getElementById("ph").value.length==10)) {#}
+{##}
+{#            window.alert("Successfully added")#}
+{#        }#}
+
+        return flag;
+    }
+        </script>
+{% endblock %}

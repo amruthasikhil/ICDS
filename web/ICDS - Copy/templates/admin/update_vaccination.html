@@ -1,0 +1,49 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/updatesvac">
+  <table width="459" height="397" border="0" >
+    <tr>
+      <tH colspan="2">VACCINATION DETAILS</td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><label for="textfield"></label>
+      <input type="text" name="name" id="textfield"  value="{{ data[1] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Importance</td>
+      <td><label for="textarea"></label>
+      <textarea name="imp" id="im" cols="45" rows="5" class="form-control" required>{{ data[3] }}</textarea></td>
+    </tr>
+    <tr>
+      <td height="137">Details</td>
+      <td><label for="textarea2"></label>
+      <textarea name="det" id="de" cols="45" rows="5" class="form-control" required>{{ data[2] }}</textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2"><center><input type="submit" name="button" id="button" value="update" class="btn btn-success"/></center></td>
+    </tr>
+  </table>
+</form>
+
+ <script type="text/javascript" language="JavaScript">
+    function valid() {
+        var  flag=true;
+
+       if (document.getElementById("im").value==""){
+            window.alert("please mention its importanace")
+            flag=false;
+        }
+
+        else  if (document.getElementById("de").value==""){
+            window.alert("enter it details")
+            flag=false;
+        }
+
+        else {
+
+        }
+       return flag;
+    }
+    </script>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "healthcenter/health index.html" %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="419" height="446" border="0" align="center">
+    <tr>
+      <tH colspan="2">DETAILS</td>
+    </tr>
+    <tr>
+      <td width="126" height="39">Child name</td>
+      <td width="135" class="form-control">{{ data[0] }}&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="41" >Gender</td>
+      <td class="form-control">{{ data[1] }}&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="40">Date of birth</td>
+      <td class="form-control">{{ data[2] }}&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="38">Blood group</td>
+      <td class="form-control">{{ data[3] }}&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="36">Mother Name</td>
+      <td class="form-control">{{ data[4] }}&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td height="43">Aganavadi name</td>
+      <td class="form-control">{{ data[5] }}&nbsp;</td>
+    </tr>
+    <
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

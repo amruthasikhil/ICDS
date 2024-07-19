@@ -1,0 +1,49 @@
+{% extends "admin/index.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/addvac" onsubmit="return valid()">
+  <table class="table" >
+    <tr>
+        <th colspan="2"><h3>VACCINATION </h3></td>
+    </tr>
+    <tr>
+      <td width="15%">Name</td>
+      <td>
+      <input type="text" name="txt_name" id="nm" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td width="15%">Importance</td>
+      <td>
+      <textarea name="txt_lmp" id="im" cols="45" rows="8" class="form-control"></textarea></td>
+    </tr>
+    <tr>
+      <td width="15%">Details</td>
+      <td>
+      <textarea name="txt_det" id="de" cols="45" rows="8" class="form-control"></textarea></td>
+    </tr>
+    <tr>
+        <td></td><td><input type="submit" name="button" id="button" value="ADD" class="btn btn-success"/></center></td>
+    </tr>
+  </table>
+</form>
+    <script type="text/javascript" language="JavaScript">
+    function valid() {
+        var  flag=true;
+
+       if (document.getElementById("im").value==""){
+            window.alert("please mention its importanace")
+            flag=false;
+        }
+
+        else  if (document.getElementById("de").value==""){
+            window.alert("enter it details")
+            flag=false;
+        }
+
+        else {
+
+        }
+       return flag;
+    }
+    </script>
+{% endblock %}

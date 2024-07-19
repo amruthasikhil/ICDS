@@ -1,0 +1,51 @@
+
+{% extends "admin/index.html" %}
+{% block body %}
+    <form>
+  <tH colspan="12"><center>SCHEDULE DETAILS</th>
+  </center></tr>
+    {% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+
+<table class="table table-striped mb30" >
+ 
+  <tr>
+    <th width="47">#    
+    <th width="133">Vaccination name</td>
+    <th width="152">importance</td>
+    <th width="98">details</td>
+    <th width="100">Date</td>
+    <th width="53">&nbsp;</td>
+    <th width="63">&nbsp;</td>
+  </tr>
+  <tr>
+      {% for d in data %}
+          <td>{{ loop.index }}</td>
+    <td>&nbsp;{{ d[1] }}</td>
+    <td>&nbsp;{{ d[2] }}</td>
+    <td>&nbsp;{{ d[3] }}</td>
+    <td>&nbsp;{{ d[4] }}</td>
+    <td>&nbsp;</td>
+    <td><a href="/updatesnutri/{{ d[5] }}" class="btn btn-info">Edit</a></td>
+    <td><a href="/delvaccishedule/{{ d[5] }}" onclick="return msg()" class="btn btn-danger">Delete</a></td>
+  </tr>
+    {% endfor %}
+{% endif %}
+</table>
+    </form>
+      <script type="text/javascript" language="JavaScript">
+    function msg() {
+        var flag=true;
+         var a=confirm("cancel...?");
+        if(a==true){
+            flag=true;
+        }
+        else {
+            flag=false
+
+        }
+      return flag;
+    }
+</script>
+{% endblock %}

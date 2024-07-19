@@ -1,0 +1,75 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+
+<body>
+ <form action="/updateschilds" method="post" enctype="multipart/form-data" name="form1" id="form1" onSubmit="return valid()">
+  <table width="643" height="313" border="0" align="center">
+    <tr>
+      <th colspan="2">CHILD DETAILS</td>
+    </tr>
+    <tr>
+      <td width="167" height="174">Name</td>
+      <td width="352"><p><img src="{{ data[3] }}" width="263" height="199" alt=""></p>
+      <p>
+        <input type="file" name="pic" id="fileField">
+      </p></td>
+    </tr>
+    <tr>
+      <td height="63" colspan="2"><center><input type="submit" name="button" id="button" value="UPDATE" class="btn btn-success"/></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+     <script type="text/javascript" language="JavaScript">
+ function valid() {
+     var flag=true;
+     var m=2019;
+     var z=document.getElementById("dob").value;
+
+     if(m-z<18){
+         alert("not valid")
+         flag=false;
+     }
+
+
+      var x = document.getElementById("select").value;
+    else if(x=='select'){
+        alert('choose the nutrition');
+        flag=false;
+    }
+
+     else if(document.getElementById("hd").value.length!=13)
+	{
+	     window.alert("Father aadhar no is not valid")
+		flag= false;
+     }
+        else if(document.getElementById("bd").value.length!=13)
+	{
+	     window.alert("Mother aadhar no is not valid")
+		flag= false;
+     }
+
+    else if(document.getElementById("pin").value.length!=6){
+         window.alert("pin no is not valid")
+         flag=false;
+     }
+      else  if (document.getElementById("ph").value.length!=10){
+         window.alert(" phone no is not valid")
+         flag=false;}
+
+
+
+	else
+	{
+
+
+
+{#	document.getElementById("h").style.visibility="hidden";#}
+	}
+
+        return flag;
+ }
+ </script>
+
+{% endblock %}

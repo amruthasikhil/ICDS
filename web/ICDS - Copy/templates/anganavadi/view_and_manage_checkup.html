@@ -1,0 +1,28 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+<center>ROUTINE CHECK UP</center>
+  <table width="458" border="0" class="table table-striped mb30">
+      <td colspan="4"><a href="/remarkspage"> <input type="button"  value="Add New" /></a></td>
+    </tr>
+    <tr>
+      <th width="77">Sl.No</td>
+      <th width="135">Date</td>
+      <th width="158">Remarks</td>
+{#      <th width="60">&nbsp;</td>#}
+    </tr>
+    <tr>
+        {% for d in data %}
+      <td>{{ loop.index }}</td>
+      <td>&nbsp;{{ d[1] }}</td>
+      <td>&nbsp;{{ d[2] }}</td>
+{#      <td><a href="/remarksdel/{{ d[3] }}">Delete</a></td>#}
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

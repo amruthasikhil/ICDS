@@ -1,0 +1,63 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form2" name="form2" method="post" action="/healthcenterselectview">
+
+    <h3>HEALTH CENTER DETAILS</h3>
+ {% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+  <table class="pull-right">
+    
+    <tr>
+      <th colspan="3"><input type="text" name="name" id="textfield" class="form-control"/>
+        <th colspan="8"><input type="submit" name="button" id="button" value="Search" class="btn btn-search"/>      </tr></table>
+
+     <br>
+     <br>
+     <br>
+     <table class="table table-striped mb30"><tr>
+      <th width="10">#</td>
+      <th width="46">Name</td>
+      <th width="84">Licence no </td>
+      <th width="37">Place</td>
+      <th width="46">Post</td>
+      <th width="49">Pin</td>
+      <th width="62">Phone</td>
+      <th width="91">Email</td>
+      <th width="70">&nbsp;</td>
+      <th width="69">&nbsp;</td>
+    </tr>
+    <tr>
+        {% for d in data %}
+              <td>{{ loop.index}}</td>
+
+      <td>{{ d[2] }}</td>
+      <td>{{ d[3] }}</td>
+      <td>{{ d[4] }}&nbsp;</td>
+      <td>{{ d[5] }}</td>
+      <td>{{ d[6] }}</td>
+      <td>{{ d[8] }}</td>
+      <td>{{ d[7] }}</td>
+      <td><a href="/healthedit/{{ d[1] }}" class="btn btn-info">Edit</a></td>
+      <td><a href="/healthdelete/{{ d[1] }}" onclick="return msg()" class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+  {% endif %}
+  </table>
+</form>
+      <script type="text/javascript" language="JavaScript">
+    function msg() {
+        var flag=true;
+         var a=confirm("Are you sure....?");
+        if(a==true){
+            flag=true;
+        }
+        else {
+            flag=false
+
+        }
+      return flag;
+    }
+</script>
+
+{% endblock %}

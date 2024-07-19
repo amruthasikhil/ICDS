@@ -1,0 +1,238 @@
+{% extends "admin/index.html" %}
+{% block body %}
+
+    <style>
+    .alert{
+    padding:20px;
+    background-color:#2a6496;
+    color:white;
+    opacity:1;
+    margin-bottom:15px;
+transition:opacity 0.6s;
+    }
+.alert.success{
+     background-color:blue;
+     width:450px;
+border-radius:20px
+
+     }
+.closebtn:hover{
+   color:black;
+}
+.closebtn{
+    margin-left:15px;
+    color:white;
+    font-weight:bold;
+float:right;
+font-size:22px;
+line-height:20px;
+cursor:pointer;
+transition:0.3s;
+}
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<form id="form1" name="form1" method="post" action="/addhos" onsubmit="return valid()">
+  <table>
+    <tr>
+        <td colspan="2"><h4>ADD HOSPITAL</h4> </td>
+    </tr>
+  {% if m==1 %}
+          <div class="alert success">
+  <span class="closebtn" onclick="this.parentElement.style.display='none'; ">&times;</span>
+   <p>Sorry you can't add this account,because it is already registrared</p>
+</div>
+        {% endif %}
+
+  </table>
+<br>
+<table class="table">
+
+
+    <tr>
+      <td width="15%">Name</td>
+      <td>
+      <input type="text" name="txt_name" id="nm" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td width="15%">Licence no</td>
+      <td><input type="number" name="txt_lno" id="ln" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td width="15%">Owner name</td>
+      <td><input type="text" name="txt_ownname" id="ow" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td width="15%">Year of  Establishment</td>
+      <td><input type="number" name="txt_yr" id="yr" MAX="20001-01-12" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td width="15%">Place</td>
+      <td><input type="text" name="txt_place" id="pl" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td width="15%">Post</td>
+      <td>
+      <input type="text" name="txt_post" id="po" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td width="15%">Pin</td>
+      <td>
+      <input type="number" name="txt_pin" id="pi" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td width="15%">Email</td>
+      <td>
+      <input type="email" name="em" id="em" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td width="15%">Phone</td>
+      <td><input type="number" name="ph" id="ph" class="form-control" required/></td>
+    </tr>
+    <tr>
+        <td></td><td><input type="submit" name="button" id="button" value="ADD" class="btn btn-success"/></td>
+    </tr>
+
+
+{#       {% if m==1 %}#}
+{#           <br>#}
+{#<div class="alert">#}
+{#  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>#}
+{#     <p>The license no is not valid</p>#}
+{##}
+{#</div>#}
+  </table>
+{#{% endif %}#}
+</form>
+    <script src="/static/jquery.min.js" ></script>
+<script>
+{#    $(document).ready(function () {#}
+{#        $("#button").click(function () {#}
+{#            alert('Successfully added')#}
+{#        });#}
+{#    });#}
+</script>
+    <script type="text/javascript" language="JavaScript">
+    function valid() {
+        var flag = true;
+        var a= document.getElementById("nm").value;
+        var b=document.getElementById("ln").value;
+{#        if(!a.match(/^[A-Za-z]+$/)){#}
+{#            alert("only charcters")#}
+{#            flag=false;#}
+{#        }#}
+{##}
+{#        if (document.getElementById("nm").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter your name")#}
+{#            flag = false;#}
+{#        }#}
+{#        else {#}
+            {#	document.getElementById("a").style.visibility="hidden";#}
+{#        }#}
+{##}
+{#          if (document.getElementById("ln").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter licence no")#}
+{#            flag = false;#}
+{#        }#}
+
+        if (document.getElementById("ln").value.length!=5){
+            window.alert("Please enter a valid  licence no")
+            flag = false;
+          }
+
+           else if(document.getElementById("yr").value.length!=4) {
+
+                window.alert("please enter the correct year")
+                flag = false;
+            }
+
+{#          else  if(!ln.match(/^[0-9]+$/))#}
+{#          {#}
+{#              alert("only nos")#}
+{#              flag=false;#}
+{#          }#}
+{#        else {#}
+            {#	document.getElementById("a").style.visibility="hidden";#}
+{#        }#}
+{##}
+{#          if (document.getElementById("ow").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter the owner name")#}
+{#            flag = false;#}
+{#        }#}
+{#        else {#}
+            {#	document.getElementById("a").style.visibility="hidden";#}
+{#        }#}
+{##}
+{#          if (document.getElementById("yr").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter year of establishment")#}
+{#            flag = false;#}
+{#        }#}
+{#        else {#}
+            {#	document.getElementById("a").style.visibility="hidden";#}
+{#        }#}
+{##}
+{#          if (document.getElementById("pl").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter your place")#}
+{#            flag = false;#}
+{#        }#}
+{#        else {#}
+            {#	document.getElementById("a").style.visibility="hidden";#}
+{#        }#}
+{##}
+{##}
+{##}
+{#        if (document.getElementById("po").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter your post")#}
+{#            flag = false;#}
+{#        }#}
+{#        else {#}
+            {#	document.getElementById("a").style.visibility="hidden";#}
+{#        }#}
+{##}
+{##}
+{#            if (document.getElementById("pi").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter your pin no")#}
+{#            flag = false;#}
+{#        }#}
+        else if(document.getElementById("pi").value.length!=6) {
+
+                window.alert("pin no is not valid")
+                flag = false;
+            }
+
+
+{#            if (document.getElementById("em").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter your email")#}
+{#            flag = false;#}
+{#
+{#            if (document.getElementById("ph").value == "") {#}
+            {#		document.getElementById("a").style.visibility="visible";#}
+{#            window.alert("Please enter your place")#}
+{#            flag = false;#}
+{#        }#}
+        else if(document.getElementById("ph").value.length!=10){
+            window.alert("Please enter the correct phone no")
+            flag=false;
+            }
+
+        else {
+            {#	document.getElementById("a").style.visibility="hidden";#}
+        }
+{#        if ((document.getElementById("nm").value != "")&&(document.getElementById("ln").value != "")&&(document.getElementById("ow").value != "")&&(document.getElementById("yr").value!= "")&&(document.getElementById("pl").value != "")&&(document.getElementById("po").value != "")&&(document.getElementById("pi").value != "")&&(document.getElementById("ph").value != "")&&(document.getElementById("em").value != "")&&(document.getElementById("ph").value.length==10)) {#}
+{#            window.alert("Successfully added")#}
+{#        }#}
+
+        return flag;
+    }
+	</script>
+
+{% endblock %}

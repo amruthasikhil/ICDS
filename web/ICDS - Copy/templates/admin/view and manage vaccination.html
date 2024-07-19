@@ -1,0 +1,57 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/selectviewvaccination">
+    <h3>VACCINATION DETAILS</h3>  </center>
+    </tr>
+{% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+
+  <table class="pull-right">
+   
+    <tr>
+      <th colspan="2"><input type="text" name="name" id="textfield" class="form-control" />
+      <th colspan="8"><input type="submit" name="button" id="button" value="Submit" class="btn btn-search"/>          
+    </tr>
+  </table>
+    <br>
+    <br>
+    <br>
+      <table class="table table-striped mb30">
+
+    <tr>
+      <th width="12">#</td>
+      <th width="45">Name</td>
+      <th width="82">Importance</td>
+      <th width="115">Details</td>
+      <th width="55">&nbsp;</td>
+      <th width="96">&nbsp;</td>
+    </tr>
+    <tr>
+        {% for d in data %}
+      <td>{{ loop.index }}</td>
+      <td>&nbsp;{{ d[1] }}</td>
+      <td>&nbsp;{{ d[3] }}</td>
+      <td>&nbsp;{{ d[2] }}</td>
+      <td><a href="/updatevaccination/{{ d[0] }}" class="btn btn-info">Edit</a></td>
+      <td><a href="/deletevaccination/{{ d[0] }}" onclick="return msg()" class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+  {% endif %}
+  </table>
+</form>
+       <script type="text/javascript" language="JavaScript">
+    function msg() {
+        var flag=true;
+         var a=confirm("Cancel....?");
+        if(a==true){
+            flag=true;
+        }
+        else {
+            flag=false
+
+        }
+      return flag;
+    }
+</script>
+{% endblock %}

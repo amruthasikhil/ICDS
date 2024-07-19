@@ -1,0 +1,57 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+
+{% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/childdet">
+  <table class="pull-right" >
+    <tr>
+      <td>Aadhar no:
+        <label for="textfield"></label>
+      <input type="text" name="name" id="textfield" />
+      <input type="submit" name="button" id="button" value="Submit" /></td>
+    </tr>
+  </table>
+    <br><br><br>
+  <table width="848" border="0" class="table table-striped mb30">
+    <tr>
+      <td width="35">#</td>
+      <td width="120">Name</td>
+      <td width="143">Gender</td>
+      <td width="234">Date of birth</td>
+      <td width="131">Mother info</td>
+        <td width="234">Father info</td>
+        <td width="234">Address</td>
+      <td width="131">Email</td>
+        <td width="234">Phone no</td>
+    </tr>
+    <tr>
+        {% for d in data %}
+        <td>&nbsp;{{ loop.index }}</td>
+      <td>{{ d[1] }}&nbsp;</td>
+      <td>{{ d[4] }}&nbsp;</td>
+      <td>&nbsp;{{ d[2] }}</td>
+      <td>Name:{{ d[7] }}<br>Aadhar No:{{ d[8] }}&nbsp;</td>
+            <td>Name:{{ d[6] }}<br>Aadhar No:{{ d[9] }}<br>Job:{{ d[10] }}&nbsp;</td>
+            <td>{{ d[11] }}<br/>{{ d[12] }}<br/>{{ d[13] }}<br/>{{ d[14] }}<br/>b{{ d[15] }}</td>
+                        <td>{{ d[16] }}&nbsp;</td>
+             <td>{{ d[17] }}&nbsp;</td>
+
+
+
+
+
+
+      <td><a href="/enrollinggg/{{ d[0] }}" class="btn btn-success">Add</a></td>
+    </tr>
+      {% endfor %}
+  {% endif %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

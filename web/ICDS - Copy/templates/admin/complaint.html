@@ -1,0 +1,77 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="" >
+  <table width="630" border="0" id="bb"class="table table-striped mb30">
+    <tr>
+        <th><center>View Complaints </center></th>
+    </tr>
+      {% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+    <tr>
+{#      <center><td> Choose:#}
+{#        <label for="select"></label>#}
+{#        <select name="select" id="select">#}
+{#          #}
+{#          {% for d in data %}#}
+{#              #}
+{#          <option value="{{ d[0] }}">{{ d[0] }}</option>#}
+{#          #}
+{#          {% endfor %}#}
+{#      #}
+{#        </select></td></center>#}
+    </tr>
+  </table>
+  <table width="593" border="0" align="center"  id="nn" class="table table-striped mb30">
+  <tr>
+    <tH >#</td>
+      <tH>Name
+      <tH>Date</td>
+      <tH>Complaint</tH>
+      <th>Status</th>
+      <tH>&nbsp;</td>
+    </tr>
+
+  <tr>
+      {% for d in data %}
+    <td>{{ loop.index }}</td>
+    <td>&nbsp;{{ d[6] }}</td>
+    <td>&nbsp;{{ d[3] }}</td>
+    <td>&nbsp;{{ d[1] }}</td>
+          {% if d[4]=='seen' %}
+         <td><a href="/seereply/{{ d[0] }}" class="btn btn-info">See reply</a></td>
+          {% else %}
+    <td><a href="/reply/{{ d[0] }}" class="btn btn-success">Reply</a></td>
+          {% endif %}
+  </tr>
+
+      {% endfor %}
+  {% endif %}
+</table>
+</form>
+{#    <script src="/static/jquery.min.js"></script>#}
+{#    <script>#}
+{#    $(document).ready(function () {#}
+{#            $.ajax({#}
+{#                url:"/choosing",#}
+{#                method:'post',#}
+{#                data:{},#}
+{#                success:function (response) {#}
+{#                    var len = response.length;#}
+{#                    $("#nn").text("");#}
+{#                    $("#nn").append('<th>Name</th><th>Date</th><complaint<th>');#}
+{#                    for (i = 0; i <= len; i++)#}
+{#                    {#}
+{#                        var n = response[i]['name'];#}
+{#                        var a = response[i]['date'];#}
+{#                        var b = response[i]['complaint'];#}
+{##}
+{#                    }#}
+{#                 $("#nn").append('<tr><td>'+i+'</td><td>'+i+'</td><td>'+i+'</td><tr>')#}
+{#                }#}
+{##}
+{#        });#}
+{##}
+{#    });#}
+{#    </script>#}
+{% endblock %}

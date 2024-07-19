@@ -1,0 +1,33 @@
+{% extends "Hospital/hospital index.html" %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/updates" onsubmit="return validate()">
+  <table class="table">
+    <tr>
+      <tH colspan="2">UPDATE DEPARTMENT</td>
+    </tr>
+    <tr>
+      <td width="95"> Department</td>
+      <td width="237"><input type="text" name="name" required id="dt" value="{{ data[1] }}" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td></td><td><input type="submit" name="button" class="btn btn-success"id="button" value="Update" /></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+     <script type="text/javascript" language="JavaScript">
+    function validate() {
+       flag=true;
+
+     if(document.getElementById("dt").value!==""){
+        alert('Successfully updated');
+
+    }
+     return flag;
+    }
+</script>
+{% endblock %}

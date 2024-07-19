@@ -1,0 +1,75 @@
+{% extends "Hospital/hospital index.html" %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/childselect">
+<h3>
+ CHILD DETAILS 
+</h3>
+
+
+  <table class="pull-right">
+             <tr>
+      <th colspan="15">&nbsp;</td>
+
+                 <td><input type="text" name="name" id="textfield"  class="form-control" required /></td><td> <button type="submit" class="btn btn-search">
+      <span class="glyphicon glyphicon-search"></span> Search
+    </button><td>   </tr>
+    <tr>
+    </tr></table><br><br><br>{% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+    <table class="table table-striped mb30">
+      <tH width="74">#</td>
+      <tH width="40">Name</td>
+      <tH width="37">Date of birth
+      <tH width="53">Gender      
+      <tH width="49">Blood Group
+        <tH width="51">Weight
+        </td>
+      <tH width="54">Mother Info
+      <tH>Father info<tH width="66">Address
+      <tH width="46">Email            
+      <tH width="52">Phone      
+      <tH colspan="2">            </tr>
+    <tr>
+        {% for d in data %}
+            <td>{{ loop.index }}</td>
+      <td width="15%">{{ d[1] }}</td>
+      <td width="25%">&nbsp;{{ d[2] }}</td>
+      <td width="53">{{ d[3] }}&nbsp;</td>
+      <td width="49">{{ d[4] }}&nbsp;</td>
+      <td width="51">&nbsp;{{ d[5] }}</td>
+      <td width="54">&nbsp;{{ d[7] }}<br>{{ d[8] }}</td>
+      <td width="56">&nbsp;{{ d[6] }}<br>{{d[9] }}<br />{{ d[10] }}</td>
+      <td width="66">{{ d[11] }}(HO)<br />{{ d[12] }}(PO)<br/>{{ d[13] }}<br />{{ d[14] }}<br />{{ d[15] }}<br /></td>
+      <td width="46">{{ d[16] }}&nbsp;</td>
+      <td width="52">&nbsp;{{ d[17] }}</td>
+        <td width="36"><a href="/childedit/{{ d[0] }}" class="btn btn-info">EDIT</a></td>
+       <td width="59"><a href="/deletechild/{{ d[0] }}" onclick="return msg()" class="btn btn-danger">DELETE</a></td>
+    </tr>
+    </tr>
+      {% endfor %}
+{% endif %}
+  </table>
+</form>
+</body>
+</html>
+     <script type="text/javascript" language="JavaScript">
+    function msg() {
+        var flag=true;
+         var a=confirm("wants to delete");
+        if(a==true){
+            flag=true;
+        }
+        else {
+            flag=false
+
+        }
+      return flag;
+    }
+</script>
+
+
+{% endblock %}

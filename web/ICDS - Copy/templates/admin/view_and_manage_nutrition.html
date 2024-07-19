@@ -1,0 +1,64 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/searching">
+<tr>
+    <h3> <tH colspan="12">NUTRITIONS DETAILS</tH></h3></td>
+    </tr>
+
+     <table class="pull-right">
+
+    <tr>
+      <td colspan="4">
+          <span class=""><i class=""><input type="text" name="name" id="textfield" class="form-control" required/></i></span></td>
+         <td> <button type="submit" class="btn btn-secondary">
+      <span class="glyphicon glyphicon-search"></span> Search
+         </button><td></td></tr></table>
+
+
+<br>
+<br>
+<br>
+{% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+  <table width="300" border="0"  class="table table-striped mb30">
+    
+    <tr>
+      <tH>#</td>
+      <tH>Name</td>
+      <tH>Details</td>
+      <tH>Type</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+          <td>&nbsp;</td>
+
+    </tr>
+    <tr>
+        {% for d in data %}
+            <td>{{ loop.index }}</td>
+      <td>&nbsp;{{ d[1] }}</td>
+      <td>&nbsp;{{ d[2] }}</td>
+      <td>&nbsp;{{ d[3] }}</td>
+      <td>{{ d[4] }}&nbsp;</td>
+      <td><a href="/updatenutri/{{ d[0] }}" class="btn btn-info">Edit</a></td>
+      <td><a href="deletenutri/{{ d[0] }}" onclick="return msg()" class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+  {% endif %}
+  </table>
+</form>
+      <script type="text/javascript" language="JavaScript">
+    function msg() {
+        var flag=true;
+         var a=confirm("Cancel..?");
+        if(a==true){
+            flag=true;
+        }
+        else {
+            flag=false
+
+        }
+      return flag;
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "User/User_index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+        <table class="table table-striped mb30">
+    <tr>
+      <h3 colspan="5">View DOCTOR</h3>
+    </tr>
+    <tr>
+      <td>Sl_no</td>
+      <td>Name</td>
+      <td>Email</td>
+      <td>Contact </td>
+      <td>&nbsp;</td>
+    </tr>
+      {% for d in data %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td><img name="" src="{{ d[16] }}" width="50" height="45" alt="" />{{ d[3] }}</td>
+      <td>{{ d[12] }}&nbsp;</td>
+      <td>&nbsp;{{ d[13] }}</td>
+      <td><a href="/motherviewdoctorop/{{ d[0] }}" class="btn btn-primary">View OP Details</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

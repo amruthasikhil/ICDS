@@ -1,0 +1,47 @@
+{% extends "User/User_index.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="">
+  <table width="432" height="519" class="table">
+    <tr>
+      <td colspan="2"><center><img name="" class="img-circle" src="{{ data[17] }}" width="200" height="200" alt="" /></center></td>
+    </tr>
+    <tr>
+      <td width="65">Name</td>
+      <td width="132">&nbsp;{{ data[1] }}</td>
+    </tr>
+    <tr>
+      <td>Date of Birth</td>
+      <td>&nbsp;{{ data[2] }}</td>
+    </tr>
+    <tr>
+      <td>Blood group</td>
+      <td>&nbsp;{{ data[3] }}</td>
+    </tr>
+    <tr>
+      <td>Aadhar no</td>
+      <td>&nbsp;{{ data[6] }}</td>
+    </tr>
+    <tr>
+      <td>Occupation</td>
+      <td>&nbsp;{{ data[7] }}</td>
+    </tr>
+    <tr>
+      <td>Husbend info</td>
+      <td>&nbsp;{{ data[8] }}<br>{{ data[9] }}</td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td>&nbsp;{{ data[11] }}<br>{{ data[12] }}<br>{{ data[13] }}<br>{{ data[14] }}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>&nbsp;{{ data[15] }}</td>
+    </tr>
+    <tr>
+      <td>Phone no</td>
+      <td>&nbsp;{{ data[16] }}</td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

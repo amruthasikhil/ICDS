@@ -1,0 +1,122 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+
+
+<body>
+<form action="/upstudent" method="post" enctype="multipart/form-data" name="form1" id="form1" onsubmit="return valid()">
+ <center> STUDENT INFORMATIONS</center>
+  
+  <table width="479" height="478" border="0" align="center">
+   
+    <tr>
+      <td width="149">Name</td>
+      <td width="223"><label for="textfield"></label>
+      <input type="text" name="name" id="textfield" value="{{ data[1] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="42">Date of birth</td>
+      <td>
+        <input type="date" name="dob" id="textfield3" value="{{ data[2] }}" class="form-control" required/>
+     </td>
+    </tr>
+    <tr>
+      <td height="65">Gender</td>
+      <td>{% if data[3]=='MALE' %}
+          <input type="radio" name="gender" value="MALE" id="male"  checked="checked"/>
+          MALE</label>
+        <br />
+          <input type="radio" name="gender" value="FEMALE" id="female" />
+          FEMALE</label>
+          {% endif %}
+        <br/>
+         {% if data[3]=='FEMALE' %}
+          <input type="radio" name="gender" value="MALE" id="male" />
+          MALE</label>
+        <br />
+          <input type="radio" name="gender" value="FEMALE" id="female" checked="checked"/>
+          FEMALE</label>
+          {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>Father's name</td>
+      <td><input type="text" name="fname" id="textfield4" value="{{ data[4] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Father's Aadhar No</td>
+      <td><input type="number" name="fid" id="hd" value="{{ data[5] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>House name</td>
+      <td><input type="text" name="hname" id="textfield6" value="{{ data[6] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Post office</td>
+      <td><input type="text" name="post" id="textfield7" value="{{ data[7] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td><input type="text" name="dist" id="textfield7" value="{{ data[8] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><input type="text" name="state" id="textfield2" value="{{ data[9] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td><label for="textfield"></label>
+      <input type="number" name="pin" id="pin" value="{{ data[10] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Local Guardian</td>
+      <td><label for="textfield"></label>
+      <input type="text" name="gurd" id="textfield" value="{{ data[11] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><label for="textfield"></label>
+      <input type="email" name="em" id="textfield" value="{{ data[12] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><input type="number" name="ph" id="ph" value="{{ data[14] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><label for="textfield">
+        <input type="file" name="pic" id="fileField"class="form-control" />
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><center><input type="submit" name="button" id="button" value="Update"class="btn btn-success" />
+      </center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+    <script type="text/javascript" language="JavaScript">
+ function valid() {
+     var flag=true;
+
+    if(document.getElementById("pin").value.length!=6){
+         window.alert("pin no is not valid")
+         flag=false;
+     }
+       else if (document.getElementById("ph").value.length!=10){
+         window.alert(" phone no is not valid")
+         flag=false;
+    }
+         else if(document.getElementById("hd").value.length!=13)
+	{
+	     window.alert("Enter a valid  aadhar no")
+		flag= false;
+     }
+
+
+
+        return flag;
+ }
+ </script>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+
+{% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+
+    <h3> ALLOCATION DETAILS</h3>
+    
+  <table width="523" border="0" align="center" class="table table-striped mb30">
+    
+    <tr>
+      <th width="48">#</td>
+      <th width="107">Nutrition info</td>
+      <th width="115">Anganavadi info</td>
+      <th width="90">Quantity</td>
+      <th width="66">&nbsp;</td>
+      <th width="57">&nbsp;</td>
+    </tr>
+    <tr>
+        {% for d in data %}
+            <td>{{ loop.index }}</td>
+      <td>&nbsp;{{ d[1] }}</td>
+      <td> {{ d[2] }}&nbsp;</td>
+      <td>&nbsp;{{ d[3] }}</td>
+      <td><a href="/updateallocatenutritoang/{{ d[4] }}" class="btn btn-info">Edit</a></td>
+      <td><a href="/deleteallocatenutritoang/{{ d[4] }}" onclick="return msg()" class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+  {% endif %}
+  </table>
+</form>
+
+    <script type="text/javascript" language="JavaScript">
+    function msg() {
+        var flag=true;
+         var a=confirm("Cancel....?");
+        if(a==true){
+            flag=true;
+        }
+        else {
+            flag=false
+
+        }
+      return flag;
+    }
+</script>
+{% endblock %}

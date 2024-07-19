@@ -1,0 +1,35 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/angusendcomplaint" onSubmit="return valid()">
+  <table class="table" >
+    <tr>
+      <tH colspan="2">SEND YOUR COMPLAINT</td>
+    </tr>
+    <tr>
+      <td height="180">Complaint</td>
+      <td><textarea name="comp" id="comp" cols="45" rows="5" class="form-control"></textarea></td>
+    </tr>
+    <tr>
+      <td></td>      <td><input type="submit" name="button" id="button" value="Send" class="btn btn-success"/></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+<script type="text/javascript" language="JavaScript">
+    function valid() {
+        var flag=true;
+        if (document.getElementById("comp").value=="")
+        {
+            window.alert('Please type your complaint')
+            flag=false;
+        }
+        else {
+        }
+        return flag;
+    }
+</script>
+{% endblock %}

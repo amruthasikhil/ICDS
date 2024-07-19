@@ -1,0 +1,59 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/addallocation" onsubmit="return valid()">
+  <table class="table">
+    <tr>
+        <tH colspan="2"><h3>ALLOCATE NUTRITIONS</h3></td>
+    </tr>
+    <tr>
+      <td width="15%">Nutrition</td>
+      <td>
+        <select name="select" id="sel1"  class="form-control" required="required" >
+        <option id="select" value="select">select</option>
+            {% for d in data1 %}
+            <option value="{{ d[0] }}">{{ d[1] }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td width="15%">Anganavadi</td>
+      <td>
+        <select name="select2" id="sel2" class="form-control" required="">
+        <option id="ll" value="select">select</option>
+             {% for d in data2 %}
+            <option value="{{ d[0] }}">{{ d[1] }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td width="15%">stock</td>
+      <td>
+      <input type="text" name="stock" id="textfield" class="form-control" required/></td>
+    </tr>
+     <tr>
+         <td></td>
+         <td>
+       <input name="button" type="submit" id="button" value="Add" class="btn btn-success"/></center></td>
+    </tr>
+  </table>
+</form> <script type="text/javascript" language="JavaScript">
+      function  valid() {
+          var flag=true;
+          var z=document.getElementById("sel2").value;
+
+    var x = document.getElementById("sel1").value;
+    if(x=='select'){
+        alert('choose the nutrition');
+        flag=false;
+    }
+     else if(z=='select'){
+         alert('choose the anganavadi');
+         flag=false;
+     }
+
+
+return flag;
+      }
+      </script>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/replysend">
+  <table width="477" height="294" border="0" align="center" >
+    
+    <tr>
+      <th height="67"><p>Complaint &nbsp;</p></td>
+      <td><input type="text" name="textfield" id="textfield" value="{{ data[1] }}" class="form-control"/>
+</td>
+    </tr>
+    <tr>
+      <th>Reply</td>
+      <td><label for="textfield"></label>
+      <textarea name="nn" id="textarea" cols="45" rows="5" class="form-control" required></textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2"><center><input type="submit" name="button" id="button" value="send" class="btn btn-success"/></center></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "Hospital/hospital index.html" %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/addop" onSubmit="return validate()">
+<h3>  OP  ARRANGING</h3>
+  <table class="table">
+  
+    <tr>
+      <td width="65">Staff</td>
+      <td><select name="select" id="select" class="form-control" required>
+      <option value="select" id="nn">select</option>
+          {% for d in data %}
+          <option value="{{ d[0] }}">{{ d[3] }}</option>
+          {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td>
+      <input type="date" name="date" id="textfield" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>From (AM)or(PM)</td>
+      <td>
+      <input type="text" name="ftime" id="textfield2" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>To (AM)or(PM)</td>
+      <td>
+      <input type="text" name="ttime" id="textfield3" class="form-control" required/></td>
+    </tr>
+    <tr>
+        <td></td><td>
+        <input type="submit" name="button" id="button" value="Allocate" class="btn btn-success" /></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+    <script type="text/javascript" language="JavaScript">
+    function validate() {
+       flag=true;
+
+      var x = document.getElementById("select").value;
+    if(x=='select'){
+        alert('please select the staff');
+        flag=false;
+    }
+     return flag;
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/nutritiongives" onsubmit="return valid()">
+  <table width="496" height="336" border="0" >
+    <tr>
+      <tH colspan="2">NUTRITION ALLOCATION</td>
+    </tr>
+    <tr>
+      <td width="74">Name</td>
+      <td width="210"><select name="st" id="select" class="form-control">
+                    <option id="select" value="select">select</option>
+
+           {% for d in data %}
+          <option value="{{ d[0] }}">{{ d[1] }}</option>
+          {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td>Quantity</td>
+      <td><input type="text" name="qt" id="textfield" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><center><input type="submit" name="button" id="button" value="Save" class="btn btn-success"/></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+      <script type="text/javascript" language="JavaScript">
+      function  valid() {
+          var flag=true;
+
+    var x = document.getElementById("select").value;
+    if(x=='select'){
+        alert('choose the nutrition');
+        flag=false;
+    }
+
+
+return flag;
+      }
+      </script>
+{% endblock %}

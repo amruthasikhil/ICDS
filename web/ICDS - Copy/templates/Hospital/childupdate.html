@@ -1,0 +1,163 @@
+{% extends "Hospital/hospital index.html" %}
+{% block body %}
+
+
+<body>
+<form action="/updateschild" method="post" enctype="multipart/form-data" name="form1" id="form1" onsubmit="return validate()">
+  <table class="table">
+    <tr>
+        <h3>CHILD DETAILS</h3></td>
+    </tr>
+    <tr>
+      <td width="165">Name</td>
+      <td><input type="text" name="name" id="textfield" value="{{ data[1] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Date of birth</td>
+      <td><input type="date" name="dob" id="dob" value="{{ data[2] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td>{% if data[4]=='male' %}
+          <input type="radio" name="gender" value="male" id="RadioGroup1_0"  checked="checked"/>
+          Male</label>
+        <br />
+          <input type="radio" name="gender" value="female" id="RadioGroup1_1" />
+          Female</label>
+          {% endif %}
+        <br/>
+         {% if data[4]=='female' %}
+          <input type="radio" name="gender" value="male" id="RadioGroup1_0" />
+          Male</label>
+        <br />
+          <input type="radio" name="gender" value="female" id="RadioGroup1_1" checked="checked"/>
+          Female</label>
+          {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>Blood Group</td>
+      <td><select name="bg" id="select" class="form-control" required>
+          <option value="{{ data[3] }}">{{ data[3] }}</option>
+          <option value="select">select</option>
+            <option value="O+ve">O+ve</option>
+          <option value="A+ve">A+ve</option>
+          <option value="B+ve">B+ve</option>
+          <option value="AB+ve">AB+ve</option>
+          <option value="O-ve">O-ve</option>
+          <option value="A-ve">A-ve</option>
+          <option value="B-ve">B-ve</option>
+          <option value="AB-ve">AB-ve</option>
+
+      </select></td>
+    </tr>
+
+    <tr>
+      <td>Weight</td>
+      <td><input type="number" name="wt" id="textfield13" value="{{ data[5] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Father name</td>
+      <td><input type="text" name="fn" id="textfield8" value="{{ data[6] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Mother Name</td>
+      <td><input type="text" name="mn" id="textfield7"  value="{{ data[7] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Father Aadhar No</td>
+      <td><input type="number" name="fid" id="fid" value="{{ data[8] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Mother Aadhar No</td>
+      <td><input type="number" name="mid" id="mid" value="{{ data[9] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Father Occupation</td>
+      <td><input type="text" name="job" id="textfield9"  value="{{ data[10] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>House name</td>
+      <td>
+      <input type="text" name="hname" id="textfield3" value="{{ data[11] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Post office</td>
+      <td>
+      <input type="text" name="post" id="textfield4" value="{{ data[12] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td>
+      <input type="text" name="dist" id="textfield3" value="{{ data[13] }}" class="form-control" required/></td>
+    </tr>
+      <tr>
+      <td>Pin</td>
+      <td>
+      <input type="number" name="pin" id="pin" value="{{ data[15] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td>
+      <input type="text" name="state" id="textfield3" value="{{ data[14] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>
+      <input type="email" name="em" id="textfield5" value="{{ data[16] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>
+      <input type="number" name="ph" id="ph" value="{{ data[17] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+        <td></td><td><input type="submit" name="button" id="button" value="UPDATE" class="btn btn-success"/></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+    <script type="text/javascript" language="JavaScript">
+    function validate() {
+
+
+
+
+
+    var x = document.getElementById("select").value;
+    if(x=='select'){
+        alert('enter your blood group');
+        flag=false;
+    }
+    else if(document.getElementById("fid").value.length!=13)
+	{
+	     window.alert("Father aadhar no is not valid")
+		flag= false;
+     }
+    else if(document.getElementById("mid").value.length!=13)
+	{
+	     window.alert("Mother aadhar no is not value")
+		flag= false;
+     }
+
+
+
+    else if(document.getElementById("pin").value.length != 6) {
+            window.alert("pin no is not valid")
+            flag = false;
+        }
+
+        else if (document.getElementById("ph").value.length != 10) {
+            window.alert("phone no is not valid")
+            flag = false;
+        }
+        else if(z=='select'){
+         alert('select the type');
+         flag=false;
+     }
+
+        return flag;
+    }
+</script>
+{% endblock %}

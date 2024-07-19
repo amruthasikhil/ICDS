@@ -1,0 +1,63 @@
+{% extends "Hospital/hospital index.html" %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/select">
+
+
+      <table class="pull-right">
+     <tr>
+         <h3>VIEW OP</h3>
+    </tr>
+    <tr>
+      <tH colspan="7"><input type="text" name="name" id="textfield" class="form-control" />
+    <td> <button type="submit" class="btn btn-search">
+      <span class="glyphicon glyphicon-search"></span> Search
+    </button><td></tr>
+      </table>
+    <br>
+    <br>
+    <br>
+{% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+    <table class="table table-striped mb30">
+    <tr>
+      <th width="15">#</th>
+      <th width="63">Staff name</th>
+      <th width="66">Date</th>
+      <th width="59">From</th>
+      <th width="58">To</th>
+      <th colspan="2">&nbsp;</th>
+    </tr>
+    <tr>
+        {% for d in data %}
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>{{ d[2] }}</td>
+      <td>&nbsp;{{ d[3] }}</td>
+      <td>{{ d[4] }}&nbsp;</td>
+      <td>{{ d[5] }}&nbsp;</td>
+      <td width="59"><a href="/editop/{{ d[0] }}" class="btn btn-info">EDIT</a></td>
+      <td width="68"><a href="/delop/{{ d[0] }} " onclick=" return msg()" class="btn btn-danger">DELETE</a></td>
+    </tr>
+      {% endfor %}
+  {% endif %}
+  </table>
+</form>
+</body>
+</html>
+    <script type="text/javascript" language="JavaScript">
+    function msg() {
+        var flag=true;
+         var a=confirm("wants to delete");
+        if(a==true){
+            flag=true;
+        }
+        else {
+            flag=false
+
+        }
+      return flag;
+    }
+</script>
+{% endblock %}

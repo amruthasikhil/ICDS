@@ -1,0 +1,213 @@
+{% extends "Hospital/hospital index.html" %}
+{% block body %}
+  <style>
+    .alert{
+    padding:20px;
+    background-color:#2a6496;
+    color:white;
+    opacity:1;
+    margin-bottom:15px;
+transition:opacity 0.6s;
+    }
+.alert.success{
+     background-color:blue;
+     width:450px;
+border-radius:20px
+
+     }
+.closebtn:hover{
+   color:black;
+}
+.closebtn{
+    margin-left:15px;
+    color:white;
+    font-weight:bold;
+float:right;
+font-size:22px;
+line-height:20px;
+cursor:pointer;
+transition:0.3s;
+}</style>
+
+<body>
+ {% if m==1 %}
+          <div class="alert success">
+  <span class="closebtn" onclick="this.parentElement.style.display='none'; ">&times;</span>
+   <p>Sorry you are not able to register</p>
+</div>
+        {% endif %}
+<form action="/adds" method="post" enctype="multipart/form-data" name="form1" id="form1" onSubmit="return validate()">
+  <table class="table">
+    <tr>
+        <th colspan="2"><h3>STAFF</h3> </td>
+    </tr>
+    <tr>
+      <td width="15%">Name</td>
+      <td>
+        <input type="text" name="name" id="textfield" class="form-control" required/>
+      </p></td>
+    </tr>
+    <tr>
+      <td>Date of birth</td>
+      <td>
+        <input type="date" name="dob" id="txtDate" onblur="return ValidateDOB" class="form-control"  required/>
+      <span class="error" id="lblError"></span>
+      </td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><p>
+        <label>
+          <input type="radio" name="gender" value="male" id="RadioGroup1_0" checked="checked"/>
+          Male</label>
+        <br />
+        <label>
+          <input type="radio" name="gender" value="female" id="RadioGroup1_1" />
+          Female</label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>Blood group</td>
+      <td>
+        <select name="select2" id="select2" class="form-control" required>
+          <option id="ll" value="select">select</option>
+          <option value="O+ve">O+ve</option>
+          <option value="A+ve">A+ve</option>
+          <option value="B+ve">B+ve</option>
+          <option value="AB+ve">AB+ve</option>
+          <option value="O-ve">O-ve</option>
+          <option value="A-ve">A-ve</option>
+          <option value="B-ve">B-ve</option>
+          <option value="AB-ve">AB-ve</option>
+          
+        </select>
+      </td>
+    </tr>
+      <tr>
+      <td>Qualification</td>
+       <td>
+           <select name="qq" id="select4" class="form-control" required>
+             <option id="ll" value="select">select</option>
+             
+             <option value="sslc">SSLC</option>
+             <option value="plustwo">Plus two</option>
+             <option value="degree">Degree</option>
+             <option value="pg">PG</option>
+           </select>
+        </td>
+        <br />
+    </tr>
+    <tr>
+      <td>House name</td>
+      <td>
+        <input type="text" name="hname" id="textfield5" class="form-control" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>Post office</td>
+      <td>
+        <input type="text" name="post" id="textfield6" class="form-control" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>District</td>
+           <td>
+             <input type="text" name="dist" id="textfield8" class="form-control" required/>
+           </td>
+
+    </tr>
+    <tr>
+      <td>pin </td>
+      <td>
+        <input type="number" name="pin" id="pin" class="form-control" required />
+      </td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td>
+        <input type="text" name="state" id="textfield4" class="form-control" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>
+        <input type="email" name="em" id="textfield" class="form-control" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>
+        <input type="number" name="ph" id="ph" class="form-control" required/>
+      </p></td>
+    </tr>
+    <tr>
+
+      <td>Type</td>
+      <td>
+        <select name="select3" id="select3" class="form-control" required>
+                                  <option id="ll" value="select">select</option>
+
+            <option value="doctor">Doctor</option>
+          <option value="nurse">Nurse</option>
+
+      </select></td>
+    </tr>
+      <tr>
+      <td>Designation</td>
+      <td>
+      <input type="text" name="desgn" id="textfield" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><input type="file" name="pic" id="fileField" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Submit" class="btn btn-success"/></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+<script type="text/javascript" language="JavaScript">
+    function validate() {
+        var flag=true;
+
+         var y = document.getElementById("select4").value;
+               var z = document.getElementById("select3").value;
+
+
+
+    var x = document.getElementById("select2").value;
+    if(x=='select'){
+        alert('enter your blood group');
+        flag=false;
+    }
+    else if(y=='select'){
+        alert('enter your qualification');
+        flag=false;
+    }
+
+
+    else if(document.getElementById("pin").value.length != 6) {
+            window.alert("pin no is not valid")
+            flag = false;
+        }
+
+        else if (document.getElementById("ph").value.length != 10) {
+            window.alert("phone no is not valid")
+            flag = false;
+        }
+        else if(z=='select'){
+         alert('select the type');
+         flag=false;
+     }
+
+        return flag;
+
+
+    }
+
+</script>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/replysend">
+  <table width="358" height="203" border="0" align="center">
+    <tr>
+    </tr>
+
+    <tr>
+      <td>Reply</td>
+      &nbsp;&nbsp;&nbsp;
+     <td> <textarea name="nn" id="textarea" cols="45" rows="5" class="form-control" >{{ data[2] }}</textarea></td>
+    </tr>
+
+  </table>
+</form>
+{% endblock %}

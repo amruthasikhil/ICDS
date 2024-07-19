@@ -1,0 +1,239 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+
+<body>
+<form action="/addmother" method="post" enctype="multipart/form-data" name="f1" id="form1" onSubmit="return valid()">
+  <table class="table">
+    <tr>
+        <th colspan="2"><h3>MOTHER DETAILS</h3></td>
+    </tr>
+    <tr>
+      <td width="15%" height="61">Name</td>
+      <td width="263"><input type="text" name="name" id="name" class="form-control" required />
+        <td width="10"  id="a" style="visibility:hidden"><font color="#FF0000"></font></td>
+    </tr>
+    <tr>
+      <td height="15%">Date of birth</td>
+      <td><input type="date" name="dob" id="dob" class="form-control" required /></td>
+        <td  id="b" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+    <tr>
+      <td height="15%">Blood Group</td>
+      <td><select name="select" id="select" class="form-control" required="">
+          <option value="O+ve">O+ve</option>
+          <option value="A+ve">A+ve</option>
+          <option value="B+ve">B+ve</option>
+          <option value="AB+ve">AB+ve</option>
+          <option value="O-ve">O-ve</option>
+          <option value="A-ve">A-ve</option>
+          <option value="B-ve">B-ve</option>
+          <option value="AB-ve">AB-ve</option>
+
+      </select></td>
+    </tr>
+    <tr>
+      <td height="47">Height in cm</td>
+      <td><input type="number" name="height" id="ht" class="form-control" required/></td>
+        <td  id="c" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+    <tr>
+      <td height="46">Weight in Kg</td>
+      <td><input type="number" name="weight" id="wt" class="form-control" required/></td>
+                <td  id="d" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+    <tr>
+      <td height="53">Aadhar No</td>
+      <td><input type="number" name="aadhar" id="aid" class="form-control" required/></td>
+                        <td  id="e" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+    <tr>
+      <td height="48">Occupation</td>
+      <td><input type="text" name="job" id="job" class="form-control" required/></td>
+                                <td  id="f" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+    <tr>
+      <td height="53">Husbend name</td>
+      <td><input type="text" name="husname" id="hm" class="form-control" required/></td>
+                                        <td  id="g" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+    <tr>
+      <td height="50">Husbend Aadhar No</td>
+      <td><input type="number" name="husadhar" id="hd" class="form-control" required/></td>
+                                                <td  id="h" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+    <tr>
+      <td height="41">Husbend Occupation</td>
+      <td><input type="text" name="husjob" id="hjob" class="form-control" required/></td>
+        <td  id="i" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+    <tr>
+      <td height="34">House name</td>
+      <td>
+      <input type="text" name="hname" id="ho" class="form-control" required/></td>
+                <td  id="j" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+    <tr>
+      <td height="38">Post office</td>
+      <td>
+      <input type="text" name="post" id="po" class="form-control"  required/></td>
+                        <td  id="k" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+    <tr>
+      <td height="36">District</td>
+      <td>
+      <input type="text" name="dist" id="dist" class="form-control" required/></td>
+                                <td  id="l" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+    <tr>
+      <td height="44">State</td>
+      <td>      <input type="text" name="state" id="st" class="form-control" required/></td>
+                                        <td  id="m" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+      <tr>
+      <td height="36">Pin</td>
+      <td>     <input type="number" name="pin" id="pin" class="form-control" required/></td>
+          <td  id="n" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+    <tr>
+      <td height="42">Email</td>
+      <td>
+      <input type="email" name="em" id="t14" class="form-control" required/></td>
+                  <td  id="o" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+    <tr>
+      <td height="38">Phone</td>
+      <td>
+      <input type="number" name="ph" id="ph" class="form-control" required/></td>
+                          <td  id="p" style="visibility:hidden"><font color="#FF0000"></font></td>
+
+    </tr>
+    <tr>
+      <td height="39">Photo</td>
+      <td>
+      
+        <input type="file" name="pic" id="fileField" class="form-control" required/>
+      </tr>
+    <tr>
+        <td></td><td><input type="submit" name="button" id="button" value="ADD" class="btn btn-success"/></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+
+<script type="text/javascript" language="JavaScript">
+    function valid() {
+        var flag=true;
+
+{#         if(document.getElementById("name").value==""||document.getElementById("dob").value==""||document.getElementById("ht").value==""||document.getElementById("wt").value==""||document.getElementById("aid").value==""||document.getElementById("job").value==""||document.getElementById("hm").value==""||document.getElementById("hd").value==""||document.getElementById("hjob").value==""||document.getElementById("ho").value==""||document.getElementById("po").value==""||document.getElementById("dist").value==""||document.getElementById("st").value==""||document.getElementById("pin").value==""||document.getElementById("em").value==""||document.getElementById("ph").value=="")#}
+{#      {#}
+{#        window.alert("Please fill all the field")#}
+{#		flag= false;#}
+{#	}#}
+
+{#	if(document.getElementById("name").value=="")#}
+{#	{#}
+{#		document.getElementById("a").style.visibility="visible";#}
+{#        window.alert("Please enter your name")#}
+{#		flag= false;#}
+{#	}#}
+{#	else#}
+{#	{#}
+{#	document.getElementById("a").style.visibility="hidden";#}
+{#	}#}
+{##}
+{##}
+{#    if(document.getElementById("dob").value=="")#}
+{#	{#}
+{#		document.getElementById("b").style.visibility="visible";#}
+{#        window.alert("Please specify your date of birth")#}
+{#		flag= false;#}
+{#	}#}
+{#	else#}
+{#	{#}
+{#	document.getElementById("b").style.visibility="hidden";#}
+{#	}#}
+{##}
+{##}
+{##}
+{#	 if(document.getElementById("ht").value=="")#}
+{#	{#}
+{#		document.getElementById("c").style.visibility="visible";#}
+{#        window.alert("Please mention your height")#}
+{#		flag= false;#}
+{#	}#}
+{#	else#}
+{#	{#}
+{#	document.getElementById("c").style.visibility="hidden";#}
+{#	}#}
+{##}
+{##}
+{##}
+{#	 if(document.getElementById("wt").value=="")#}
+{#	{#}
+{#		document.getElementById("d").style.visibility="visible";#}
+{#        window.alert("Please mention your weight")#}
+{#		flag= false;#}
+{#	}#}
+{#	else#}
+{#	{#}
+{#	document.getElementById("d").style.visibility="hidden";#}
+{#	}#}
+{##}
+{##}
+{#........................Aadhar....................................#}
+
+	if(document.getElementById("hd").value.length!=13)
+	{
+	     window.alert("Enter a valid  aadhar no")
+		flag= false;
+     }
+
+
+
+
+
+	else  if(document.getElementById("aid").value.length!=13)
+	{
+	     window.alert("Enter your valid  aadhar no")
+		flag= false;
+     }
+
+	else  if(document.getElementById("hd").value.length!=13)
+	{
+	     window.alert("Enter  valid  aadhar no")
+		flag= false;
+     }
+    {#         ||document.getElementById("ht").value==""||document.getElementById("wt").value==""||document.getElementById("aid").value==""||document.getElementById("job").value==""||document.getElementById("hm").value==""||document.getElementById("hd").value==""||document.getElementById("hjob").value==""||document.getElementById("ho").value==""||document.getElementById("po").value==""||document.getElementById("dist").value==""||document.getElementById("st").value==""||document.getElementById("pin").value==""||document.getElementById("em").value==""||document.getElementById("ph").value=="")#}
+
+
+	else if(document.getElementById("pin").value.length!=6)
+    {
+        window.alert("pin no is not valid")
+        flag=false;
+    }
+
+      else  if (document.getElementById("ph").value.length != 10) {
+            window.alert("phone no is not valid")
+            flag = false;
+        }
+
+
+        return flag;
+    }
+</script>
+{% endblock %}

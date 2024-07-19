@@ -1,0 +1,167 @@
+{% extends "healthcenter/health index.html" %}
+{% block body %}
+
+
+<body>
+<form action="/updatesss" method="post" enctype="multipart/form-data" name="form1" id="form1" onsubmit="return validate()">
+  <table class="table">
+    <tr>
+        <h3>STAFF </h3>
+    </tr>
+    <tr>
+      <td width="94">Name</td>
+      <td>
+      <input type="text" name="nm" id="textfield"  value="{{ d[3] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Date of birth</td>
+      <td><input type="date" name="dob" id="textfield2" value="{{ d[4] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="127">Gender</td>
+      <td>{% if d[5]=='male'  %}
+          <input type="radio" name="gender" value="male" id="RadioGroup1_0" checked="checked"/>
+          Male
+        <br />
+          <input type="radio" name="gender" value="female" id="RadioGroup1_1" />
+          Female</label>
+          {% endif %}
+        <br />
+      {% if d[5]=='female'  %}
+          <input type="radio" name="gender" value="male" id="RadioGroup1_0" />
+          Male</label>
+        <br />
+          <input type="radio" name="gender" value="female" id="RadioGroup1_1" checked="checked" />
+          Female</label>
+          {% endif %}
+          <br /></td>
+    </tr>
+    <tr>
+      <td>Qualification</td>
+      <td>
+        <select name="qual" id="select3" class="form-control" required >
+            <option value="{{ d[14] }}">{{ d[14] }}</option>
+                        <option value="select">select</option>
+
+            <option value="sslc">SSLC</option>
+          <option value="plustwo">Plus two</option>
+            <option value="degree">Degree</option>
+            <option value="pg">PG</option>
+      </select>
+        </td></tr>
+    <tr>
+      <td>Blood group</td>
+      <td><select name="bg" id="select2" class="form-control" required>
+          <option value="{{ d[6] }}">{{ d[6] }}</option>
+                      <option value="select">select</option>
+
+           <option value="O+ve">O+ve</option>
+          <option value="A+ve">A+ve</option>
+          <option value="B+ve">B+ve</option>
+          <option value="AB+ve">AB+ve</option>
+          <option value="O-ve">O-ve</option>
+          <option value="A-ve">A-ve</option>
+          <option value="B-ve">B-ve</option>
+          <option value="AB-ve">AB-ve</option>
+
+      </select></td>
+    </tr>
+    <tr>
+      <td>House name</td>
+      <td><input type="text" name="hm" id="textfield5" value="{{ d[7] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Post office</td>
+      <td><input type="text" name="pt" id="textfield6" value="{{ d[8] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td><input type="text" name="dt" id="textfield8" value="{{ d[9] }}" class="form-control" required/></td>
+      </td>
+    </tr>
+    <tr>
+      <td>pin </td>
+      <td><input type="number" name="pin" id="pin" value="{{ d[10] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><input type="text" name="st" id="textfield4" value="{{ d[11] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>
+      <input type="email" name="em" id="textfield" value="{{ d[12] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>
+      <input type="number" name="ph" id="ph" value="{{ d[13] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Designation</td>
+      <td>
+      <input type="text" name="dg" id="textfield" value="{{ d[15] }}" class="form-control" required/></td>
+    </tr>
+   <tr>
+      <td>Type</td>
+     <td>
+        <select name="type" id="select5" class="form-control" required>
+            <option>{{ d[17] }}</option>
+            <option value="select">select</option>
+            <option value="attender">Attender</option>
+          <option value="nurse">Nurse</option>
+            <option value="labtechnian">Lab Technician</option>
+            <option value="doctor">Doctor</option>
+        </select>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><input type="file" name="pic" id="fileField" value="{{ d[16] }}" class="form-control" /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Update" class="btn btn-success"/></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+    <script type="text/javascript" language="JavaScript">
+    function validate() {
+        var flag=true;
+
+         var y = document.getElementById("select3").value;
+               var z = document.getElementById("select5").value;
+
+
+
+    var x = document.getElementById("select2").value;
+    if(y=='select'){
+        alert('enter your qualification');
+        flag=false;
+    }
+    else if(x=='select'){
+        alert('enter your blood group');
+        flag=false;
+    }
+
+
+
+    else if(document.getElementById("pin").value.length != 6) {
+            window.alert("pin no is not valid")
+            flag = false;
+        }
+
+        else if (document.getElementById("ph").value.length != 10) {
+            window.alert("phone no is not valid")
+            flag = false;
+        }
+        else if(z=='select'){
+         alert('select the type');
+         flag=false;
+     }
+
+        return flag;
+    }
+</script>
+{% endblock %}

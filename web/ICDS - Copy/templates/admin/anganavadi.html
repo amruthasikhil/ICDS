@@ -1,0 +1,136 @@
+{% extends "admin/index.html" %}
+{% block body %}
+     <style>
+    .alert{
+    padding:20px;
+    background-color:#2a6496;
+    color:white;
+    opacity:1;
+    margin-bottom:15px;
+transition:opacity 0.6s;
+    }
+.alert.success{
+     background-color:blue;
+     width:450px;
+border-radius:20px
+
+     }
+.closebtn:hover{
+   color:black;
+}
+.closebtn{
+    margin-left:15px;
+    color:white;
+    font-weight:bold;
+float:right;
+font-size:22px;
+line-height:20px;
+cursor:pointer;
+transition:0.3s;
+}
+    </style>
+
+<form id="form1" name="form1" method="post" action="/addangu" onsubmit="return valid()">
+  <table>
+    <tr>
+        <td><h3>AGANAVADI</h3></td>
+    </tr>
+   {% if m==1 %}
+          <div class="alert success">
+  <span class="closebtn" onclick="this.parentElement.style.display='none'; ">&times;</span>
+   <p>Sorry you can't add this account,because it is already registrared</p>
+</div>
+        {% endif %}
+  </table>
+<table class="table">
+
+    <tr>
+      <td width="15%">Name</td>
+      <td>
+      <input type="text" name="txt_name" id="nm" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td width="15%">Licence no</td>
+      <td><input type="number" name="txt_lno" id="lno" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td width="15%">Place</td>
+      <td>
+      <input type="text" name="txt_place" id="pl" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td width="15%">Phone</td>
+      <td>
+      <input type="number" name="ph" id="ph" class="form-control"  required/></td>
+    </tr>
+    <tr>
+      <td width="15%">Email</td>
+      <td>
+      <input type="email" name="em" id="em" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td width="15%">Post</td>
+      <td>
+      <input type="text" name="txt_post" id="pt" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td width="15%">Pin</td>
+      <td>
+      <input type="number" name="txt_pin" id="pin" class="form-control" required/></td>
+    </tr>
+    <tr>
+        <td></td><td><input type="submit" name="button" id="button" value="ADD" class="btn btn-success"/></center></td>
+    </tr>
+{#      {% if m==1 %}#}
+{#           <br>#}
+{#<div class="alert">#}
+{#    <center><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span></center>#}
+{#   <p>You can not add the account because</p>#}
+{#    <p>The license no is already registrared</p>#}
+{#</div>#}
+{#        {% endif %}#}
+  </table>
+</form>
+{#   <script src="/static/jquery.min.js" ></script>#}
+{#<script>#}
+{#    $(document).ready(function () {#}
+{#        $("#button").click(function () {#}
+{#            alert('Successfully added')#}
+{#        });#}
+{#    });#}
+{#</script>#}
+
+ <script type="text/javascript" language="JavaScript">
+ function valid() {
+     var flag=true;
+{#     if (document.getElementById("nm").value==""){#}
+{#         window.alert("Please enter the name")#}
+{#         flag=false;#}
+{#     }#}
+{#     else {#}
+{##}
+{#     }#}
+{#     if (document.getElementById("lno").value==""){#}
+{#         window.alert("Please enter the licence no")#}
+{#         flag=false;#}
+{#     }#}
+      if(document.getElementById("lno").value.length!=5){
+         window.alert("licence no is not valid")
+         flag=false;
+     }
+      else  if(document.getElementById("ph").value.length!=10){
+         window.alert("phone no is not valid")
+         flag=false;
+     }
+     else  if(document.getElementById("pin").value.length!=6){
+         window.alert("pin no is not valid")
+         flag=false;
+     }
+
+
+
+
+     return flag;
+ }
+ </script>
+{% endblock %}

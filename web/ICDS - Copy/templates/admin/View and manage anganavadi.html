@@ -1,0 +1,66 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/viewselectanganavadi">
+<center>
+  <p>&nbsp;</p>
+    <p><h3>AGANAVADI DETAILS</h3></p>
+</center>
+{% if data22|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+  .
+  <table class="pull-right">
+    <tr>
+        <td colspan="3"><center><input type="text" name="name" id="textfield" class="form-control"/>
+        <th colspan="8"><input type="submit" name="button" id="button" value="Search" class="btn btn-search"/></center></td>
+      </tr>
+  </table>
+    <br>
+    <br>
+    <br>
+    <table class="table table-striped mb30">
+      <tr>
+        <th width="11">#</td>
+        <th width="40">Name</td>
+        <th width="75">Licence no</td>
+        <th width="36">Place</td>
+        <th width="41">Phone</td>
+        <th width="31">Post</td>
+        <th width="35">Pin</td>
+        <th width="52">Email</td>
+        <th width="40">&nbsp;</td>
+        <th width="127">&nbsp;</td>
+      </tr>
+      <tr>
+          {% for d in data22 %}
+           <td>{{ loop.index }}</td>
+          <td>{{ d[1] }}</td>
+         <td>{{ d[2] }}</td>
+         <td>&nbsp;{{ d[3] }}</td>
+         <td>{{ d[4] }}</td>
+         <td>{{ d[6] }}</td>
+         <td>{{ d[7] }}</td>
+
+         <td>{{ d[5] }}</td>
+        <td><a href="/anganavadimanagement1/{{ d[8] }}" class="btn btn-info">Edit</a></td>
+        <td><a href="/anganavadidelete/{{ d[8] }}" onclick="return msg()" class="btn btn-danger">Delete</a></td>
+      </tr>
+      {% endfor %}
+  {% endif %}
+    </table>
+</form>
+      <script type="text/javascript" language="JavaScript">
+    function msg() {
+        var flag=true;
+         var a=confirm("wants to delete");
+        if(a==true){
+            flag=true;
+        }
+        else {
+            flag=false
+
+        }
+      return flag;
+    }
+</script>
+{% endblock %}

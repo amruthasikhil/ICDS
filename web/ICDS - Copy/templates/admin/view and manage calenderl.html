@@ -1,0 +1,93 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/viewbydate">
+<tr>
+      <tH colspan="6"><center>CALENDER DETAILS</center>
+        </td>
+{% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+  .
+  <table width="610" border="0"  class="table table-striped mb30">
+    
+     
+    <tr>
+      <tH colspan="12">from:<input type="date" name="date1" id="textfield2" placeholder="from" required/>
+        To:<input type="date" name="date2" id="textfield" />
+        <input type="submit" name="button" id="button" value="Search" required/>
+        <br /></tr>
+    <tr>
+      <td width="10">#</td>
+      <tH width="160">Date</td>
+      <tH width="250">Program</td>
+      <tH width="450">Details</td>
+      <tH width="64">&nbsp;</td>
+      <tH width="74">&nbsp;</td>
+    </tr>
+    <tr>
+        {% for d in data %}
+            <td>&nbsp;{{ loop.index}}</td>
+      <td>&nbsp;{{ d[1] }}</td>
+      <td>{{ d[2] }}&nbsp;</td>
+      <td>{{ d[3] }}&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><a href="/editcalender/{{ d[0] }}" class="btn btn-info">Edit</a></td>
+      <td><a href="/deletetcalender/{{ d[0] }}" class="btn btn-danger" onclick="return msg()">Delete</a></td>
+    </tr>
+      {% endfor %}
+  {% endif %}
+  </table>
+</form>
+{#     <script src="/static/jquery.min.js" ></script>#}
+{#    <script>#}
+{#    $(document).ready(function () {#}
+{#    $('#f_date').change(function () {#}
+{#            var f_date=$('#f_date').val();#}
+{#            var  t_date=$('#t_date').val();#}
+{#            {#}
+{#                $.ajax({#}
+{#                url:"/viewcalender",#}
+{#                method:'post',#}
+{#                date:{f_date:f_date,t_date:t_date},#}
+{#                success:function (response) {#}
+{#                    var len = response.length;#}
+{#                    $("#jj").text("");#}
+{#                    $("#jj").append('<th>vacn</th><th>date</th>child<th><th>type</th><th>venue</th>')#}
+{#                    for (i=0;i<=length;i++)#}
+{#                    {#}
+{##}
+{#                        var vacn=$('#ab').val();#}
+{#                        var date=$('#bc').val();#}
+{#                        var child=$('#cd').val();#}
+{#                        var type=$('#df').val();#}
+{#                        var venue=$('#vv').val();#}
+{##}
+{#                    }#}
+{#                    $("#nn").append('<tr><td>'+i+'</td><td>'+vacn+'</td><td>'+date+'</td><td>'+child+'</td><td>'+i+'</td><tr>')#}
+{##}
+{#                }#}
+{#            });#}
+{#            }#}
+{##}
+{##}
+{#            });#}
+{##}
+{##}
+{#    });#}
+{##}
+{#    </script>#}
+     <script type="text/javascript" language="JavaScript">
+    function msg() {
+        var flag=true;
+         var a=confirm("Cancel....?");
+        if(a==true){
+            flag=true;
+        }
+        else {
+            flag=false
+
+        }
+      return flag;
+    }
+</script>
+{% endblock %}

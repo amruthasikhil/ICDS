@@ -1,0 +1,60 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/addvcalen" onsubmit="return valid()">
+  <table class="table" >
+    <tr>
+        <h3>ADD CALENDER</h3>
+    </tr>
+    <tr>
+      <td width="15%">Date</td>
+      <td>
+      <input type="date" name="date" id="dt"  class="form-control"/></td>
+    </tr>
+    <tr>
+      <td width="15%">Program</td>
+      <td>
+      <input type="text" name="prgm" id="pg" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td width="15%">Details</td>
+      <td>
+      <textarea name="det" id="de" cols="45" rows="5" class="form-control"></textarea></td>
+      
+    </tr>
+    <tr>
+      <td></td><td><input type="submit" name="button" id="button" value="ADD" class="btn btn-success" /></center></td>
+    </tr>
+  </table>
+</form>
+{#             <script src="/static/jquery.min.js" ></script>#}
+{#<script>#}
+{#    $(document).ready(function () {#}
+{#        $("#button").click(function () {#}
+{#            alert('Updated....!!!')#}
+{#        });#}
+{#    });#}
+{#    </script>#}
+<script type="text/javascript" language="JavaScript">
+function valid() {
+    var flag=true;
+    if(document.getElementById("dt").value==""){
+        window.alert("please choose the date")
+        flag=false;
+    }
+
+     else  if (document.getElementById("pg").value==""){
+        window.alert("please enter the program")
+        flag=false;
+    }
+
+    else  if (document.getElementById("de").value==""){
+       window.alert("enter the details please.....")
+        flag=false;
+    }
+
+
+    return flag;
+
+}
+</script>
+{% endblock %}

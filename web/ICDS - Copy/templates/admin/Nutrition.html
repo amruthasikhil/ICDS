@@ -1,0 +1,46 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/addnutrition" onsubmit="return valid()">
+  <table class="table" >
+    <tr>
+      <tH colspan="2">NUTRITIONS </td>
+    </tr>
+    <tr>
+      <td width="15%">Name</td>
+      <td>
+      <input type="text" name="name" id="nm"  class="form-control"/></td>
+    </tr>
+    <tr>
+      <td width="15%">Details</td>
+      <td>
+      <textarea name="det" id="dt" cols="45" rows="5" class="form-control"></textarea></td>
+    </tr>
+    <tr>
+      <td width="15%">Type</td>
+      <td>
+      <input type="text" name="type" id="type" class="form-control"/></td>
+    </tr>
+    <tr><td></td><td><input type="submit" value="ADD" class="btn btn-success"/></></td>
+    </tr>
+  </table>
+</form>
+    <script type="text/javascript" language="JavaScript">
+    function valid() {
+        var  flag=true;
+        if(document.getElementById("nm").value==""){
+            window.alert("please enter the nutrions name")
+            flag=false;
+        }
+       else if(document.getElementById("dt").value==""){
+            window.alert("please enter the details")
+            flag=false;
+        }
+       else if  (document.getElementById("type").value==""){
+            window.alert("please specifies its type")
+            flag=false;
+        }
+
+        return flag;
+    }
+    </script>
+{% endblock %}

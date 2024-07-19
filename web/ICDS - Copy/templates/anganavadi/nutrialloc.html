@@ -1,0 +1,32 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="300" border="0" class="table table-striped mb30">
+    <tr>
+      <tH colspan="4">NUTRITION ALLOCATION</td>
+    </tr>
+    <tr>
+        <td colspan="4"><a href="/nutrialloc"><input type="button" name="button" id="button" value="Add New " /></a></td>
+    </tr>
+    <tr>
+      <td>Sl no</td>
+      <td>Date</td>
+      <td>Nutrition</td>
+      <td>Quantity</td>
+    </tr>
+    <tr>
+        {% for d in data %}
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ d[0] }}</td>
+      <td>&nbsp;{{ d[2] }}</td>
+      <td>&nbsp;{{ d[1] }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

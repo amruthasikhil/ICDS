@@ -1,0 +1,70 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+{% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/viewenrollmother">
+<center> MOTHER DETAILS </center>
+  <table class="pull-right" >
+                                      
+    
+    <tr>
+      <th colspan="16">&nbsp;</td>
+
+      <input type="text" name="name" id="textfield" />      <input type="submit" name="button3" id="button3" value="Search" />      </tr>
+  </table>
+    <br>
+    <br>
+    <br>
+<table class="table table-striped mb30">
+      <tH width="8">#</td>
+      <tH width="50">Name</td>
+      <tH width="39">Date of birth
+      <tH width="49">Blood Group
+      <th >Mother info</th>
+
+      <tH> Husbend Info            
+      <tH width="89">Address
+      <tH width="70">Email            
+      <tH width="62">Phone      
+      <tH colspan="4">            </tr>
+    <tr>
+        {% for d in data %}
+      <td height="67">{{ loop.index }}</td>
+      <td><img src="{{ d[17] }}" width="80" height="70" class="img-circle"/>{{ d[1] }}</td>
+      <td>{{ d[2] }}&nbsp;</td>
+      <td>{{ d[3] }}&nbsp;</td>
+      <td>Height:{{ d[4] }}&nbsp;<br>&nbsp;Weight:{{ d[5] }}<br>Aadhar no:&nbsp;{{ d[6] }}<br>&nbsp;Occupation:{{ d[7] }}</td>
+      <td width="100">Name:{{ d[8] }}<br>Aadhar no:{{ d[9] }}<br/>Job:{{ d[10] }}</td>
+      <td>{{ d[11] }}(HO)<br />{{ d[12] }}(PO)<br/>{{ d[18] }}<br />{{ d[13] }}<br />{{ d[14] }}</td>
+      <td>&nbsp;{{ d[15] }}</td>
+      <td>&nbsp;{{ d[16] }}</td>
+        <td width="58"><a href="/update_enroll_mother/{{ d[0] }}"><input type="button" name="button4" id="button4" value="Edit " class="btn btn-info" /></a></td>
+            <td><a href="/deletemother/{{ d[0] }}"><input type="button" name="button5" id="button5" value="Delete"  class="btn btn-danger" onclick="return msg()"/></a></td>
+      <td width="115"><a href="/remarksadd/{{ d[0] }}"><input type="button" name="button2" id="button2" value="Routine Check up"  class="btn btn-info"/></a></td>
+        <td width="123"><a href="/nutriallotomomandchild/{{ d[0] }}"> <input type="button" name="button" id="button"  class="btn btn-info" value="Nutrition Allocation" align="left" /></a></td>
+    </tr>
+      {% endfor %}
+  {% endif %}
+  </table>
+</form>
+</body>
+</html>
+       <script type="text/javascript" language="JavaScript">
+    function msg() {
+        var flag=true;
+         var a=confirm("wants to delete");
+        if(a==true){
+            flag=true;
+        }
+        else {
+            flag=false
+
+        }
+      return flag;
+    }
+</script>
+{% endblock %}

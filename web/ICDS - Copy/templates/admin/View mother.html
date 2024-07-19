@@ -1,0 +1,44 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+{% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/viewenrollmother">
+<center> MOTHER DETAILS </center>
+  <table class="pull-right" >
+                                      
+    
+    <tr>
+      <th colspan="16">&nbsp;</td>
+
+      <input type="text" name="name" id="textfield" />      <input type="submit" name="button3" id="button3" value="Search" />      </tr>
+  </table>
+    <br>
+    <br>
+    <br>
+<table class="table table-striped mb30">
+      <tH>#</td>
+      <tH>Name</td>
+    <tH>Address</tH>
+    <tH>Email </tH>
+    <tH>Phone</tH>
+      <tH>            </tr>
+    <tr>
+        {% for d in data %}
+      <td height="67">{{ loop.index }}</td>
+      <td><img src="{{ d[17] }}" width="80" height="70" class="img-circle"/>{{ d[1] }}</td>
+      <td>{{ d[11] }}(HO)<br />{{ d[12] }}(PO)<br/>{{ d[18] }}<br />{{ d[13] }}<br />{{ d[14] }}</td>
+      <td>&nbsp;{{ d[15] }}</td>
+      <td>&nbsp;{{ d[16] }}</td>
+        <td><a href="/admin_chat/{{ d[20] }}" class="btn btn-primary">Chat Now</a></td>
+    </tr>
+      {% endfor %}
+  {% endif %}
+  </table>
+</form>
+</body>
+</ht
+{% endblock %}

@@ -1,0 +1,143 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+
+
+<body>
+<form action="/addingg" method="post" enctype="multipart/form-data" name="form1" id="form1" onSubmit="return valid()">
+ <center>
+ </center>
+  
+  <table class="table">
+   
+    <tr>
+      <td width="15%">Name</td>
+      <td>
+      <input type="text" name="name" id="nm" value="" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="24">Date of birth</td>
+      <td><input type="date" name="dob" id="dob" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="46">Gender</td>
+      <td><p>
+          <input type="radio" name="gender" value="MALE" id="gen" checked="checked"/>
+          Male
+        <br />
+          <input type="radio" name="gender" value="FEMALE" id="gen"/>
+          Female
+        </label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td height="26">Father's name</td>
+      <td><input type="text" name="fname" id="fn" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td height="26">Father's Aadhar No</td>
+      <td><input type="number" name="fid" id="hd" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="26">House name</td>
+      <td><input type="text" name="hname" id="hm" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td height="24">Post office</td>
+      <td><input type="text" name="post" id="pt" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="24">District</td>
+      <td> <input type="text" name="dist" id="dt" class="form-control" required/>
+</td>
+    </tr>
+    <tr>
+      <td height="28">State</td>
+      <td><input type="text" name="state" id="st" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="24">Pin</td>
+      <td>
+      <input type="number" name="pin" id="pin" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="24">Local Guardian</td>
+      <td>
+      <input type="text" name="gurd" id="gd" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="24">Email</td>
+      <td>
+      <input type="email" name="em" id="em" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="24">Phone</td>
+      <td><input type="number" name="ph" id="ph" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td height="27">Photo</td>
+      <td><label for="textfield">
+        <input type="file" name="pic" id="fileField" class="form-control" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td></td><td><input type="submit" name="button" id="button" value="Add" class="btn btn-success"/></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+<script type="text/javascript" language="JavaScript">
+ function valid() {
+
+
+
+     var flag=true;
+
+
+
+
+
+{#        if(document.getElementById("pin").value=""||document.getElementById("pt").value==""||document.getElementById("em").value==""||document.getElementById("ph").value==""||document.getElementById("pl").value==""||document.getElementById("lno").value==""||document.getElementById("nm").value==""||document.getElementById("pt").value==""||document.getElementById("pt").value==""||document.getElementById("hd").value==""||document.getElementById("fn").value==""||document.getElementById("dob").value==""||document.getElementById("dt").value==""||document.getElementById("st").value==""||document.getElementById("gd").value=="")#}
+{#     {#}
+{#        window.alert("Please fill all the field");#}
+{#         flag=false;#}
+{#     }#}
+
+{##}
+{#     }#}
+{#     if (document.getElementById("ph").value==""){#}
+{#         window.alert("Enter your phone no")#}
+{#         flag=false;#}
+{#     }#}
+       if(document.getElementById("hd").value.length!=13)
+	{
+	     window.alert("Enter a valid  aadhar no")
+		flag= false;
+     }
+      else if(document.getElementById("pin").value.length!=6)
+	{
+	     window.alert("Enter a valid  pin no")
+		flag= false;
+     }
+     else if (document.getElementById("ph").value.length!=10){
+         window.alert(" phone no is not valid");
+         flag=false;}
+
+
+	else
+	{
+	document.getElementById("h").style.visibility="hidden";
+	}
+
+
+
+
+
+     return flag;
+ }
+ </script>
+
+
+
+{% endblock %}

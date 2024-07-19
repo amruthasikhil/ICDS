@@ -1,0 +1,25 @@
+{% extends "User/User_index.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="">
+        <table class="table table-striped mb30">
+    <tr>
+      <td colspan="4">View Calender</td>
+    </tr>
+    <tr>
+      <td width="49">Sl_no</td>
+      <td width="56">Date</td>
+      <td width="103">Program</td>
+      <td width="50">Details</td>
+    </tr>
+            {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>{{ i[1] }}&nbsp;</td>
+      <td>{{ i[2] }}&nbsp;</td>
+      <td>{{ i[3] }}&nbsp;</td>
+    </tr>
+            {% endfor %}
+  </table>
+</form>
+{% endblock %}

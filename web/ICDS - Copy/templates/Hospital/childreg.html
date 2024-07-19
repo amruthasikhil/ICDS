@@ -1,0 +1,160 @@
+{% extends "Hospital/hospital index.html" %}
+{% block body %}
+
+<body>
+<form action="/addchildreg" method="post" enctype="multipart/form-data" name="form1" id="form1" onsubmit="return validate()">
+  <table class="table">
+    <tr>
+        <th colspan="2"><h3>CHILD DETAILS</h3></td>
+    </tr>
+    <tr>
+      <td width="157">Name</td>
+      <td><input type="text" name="name" id="textfield" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Date of birth</td>
+      <td><input type="date" name="dob" id="textfield2" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><p>
+        <label>
+          <input type="radio" name="gender" value="male" id="RadioGroup1_0" checked="checked"/>
+          male</label>
+        <br />
+        <label>
+          <input type="radio" name="gender" value="female" id="RadioGroup1_1" />
+          female</label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>Blood Group</td>
+      <td><select name="bg" id="select" class="form-control" required>
+          <option id="bb" value="select">select</option>
+           <option value="O+ve">O+ve</option>
+          <option value="A+ve">A+ve</option>
+          <option value="B+ve">B+ve</option>
+          <option value="AB+ve">AB+ve</option>
+          <option value="O-ve">O-ve</option>
+          <option value="A-ve">A-ve</option>
+          <option value="B-ve">B-ve</option>
+          <option value="AB-ve">AB-ve</option>
+
+      </select></td>
+    </tr>
+
+    <tr>
+      <td>Weight</td>
+      <td><input type="number" name="wt" id="textfield13" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Father name</td>
+      <td><input type="text" name="fn" id="textfield8" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Mother Name</td>
+      <td><input type="text" name="mn" id="textfield7"class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Father Aadhar No</td>
+      <td><input type="number" name="fid" id="fid" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Mother Aadhar No</td>
+      <td><input type="number" name="mid" id="mid" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Father Occupation</td>
+      <td><input type="text" name="job" id="textfield9" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>House name</td>
+      <td>
+      <input type="text" name="hname" id="textfield3" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Post office</td>
+      <td>
+      <input type="text" name="post" id="textfield4" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td>      <input type="text" name="dist" id="textfield3" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td>
+      <input type="text" name="state" id="textfield3" class="form-control" required/></td>
+    </tr>
+       <tr>
+      <td>Pin</td>
+      <td>
+      <input type="number" name="pin" id="pin" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>
+      <input type="email" name="em" id="textfield5" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>
+      <input type="number" name="ph" id="ph" class="form-control" required/></td>
+    </tr>
+    <tr>
+        <td></td><td><input type="submit" name="button" id="button" value="ADD" class="btn btn-success" /></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+    <script type="text/javascript" language="JavaScript">
+    function validate() {
+
+     var t= document.getElementById("fid").value;
+         var q= document.getElementById("mid").value;
+
+
+
+
+    var x = document.getElementById("select").value;
+    if(x=='select'){
+        alert('enter your blood group');
+        flag=false;
+    }
+    else if(document.getElementById("fid").value.length!=13)
+	{
+	     window.alert("Father aadhar no is not valid")
+		flag= false;
+     }
+     else  if(t==q){
+        alert("don't give the same aadhar numbers")
+        flag=false;
+    }
+    else if(document.getElementById("mid").value.length!=13)
+	{
+	     window.alert("Mother aadhar no is not value")
+		flag= false;
+     }
+
+
+
+    else if(document.getElementById("pin").value.length != 6) {
+            window.alert("pin no is not valid")
+            flag = false;
+        }
+
+        else if (document.getElementById("ph").value.length != 10) {
+            window.alert("phone no is not valid")
+            flag = false;
+        }
+        else if(z=='select'){
+         alert('select the type');
+         flag=false;
+     }
+
+        return flag;
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "anganavadi/anganavadiindex.html" %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/remarksadding">
+  <table width="497" height="327" border="0">
+    <tr>
+      <tH colspan="2">REMARKS </td>
+    </tr>
+    <tr>
+      <td width="124">Date</td>
+      <td width="160"><input type="date" name="date" id="textfield" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Remarks</td>
+      <td><textarea name="re" id="textarea" cols="45" rows="5" class="form-control" required></textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2"><center><input type="submit" name="button" id="button" value="Save" class="btn btn-success" /></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

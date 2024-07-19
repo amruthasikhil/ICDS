@@ -1,0 +1,55 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form" name="form" method="post" action="/updatingdata" onsubmit="return valid()">
+  <table width="368" height="181" border="0" align="center">
+    <tr>
+      <tH colspan="2">ALLOCATE NUTRITIONS</td>
+    </tr>
+    <tr>
+      <td width="96">Nutrition</td>
+     <td><select name="nm" id="nm" class="form-control">
+            <option value="{{ data[0] }}">{{ data[1] }}</option>
+          {% for d in data1 %}
+         <option value="{{ d[0] }}">{{ d[1] }}</option>
+          {% endfor %}
+
+      </select></td>
+    </tr>
+
+    <tr>
+      <td>Anganavadi</td>
+    <td> <select name="an"  class="form-control" required="">
+
+
+            <option value="{{ data[2] }}">{{ data[3] }}</option>
+        {% for d in data2 %}
+         <option value="{{ d[0] }}">{{ d[1] }}</option>
+          {% endfor %}
+
+      </select></td>
+    </tr>
+    <tr>
+      <td>stock</td>
+      <td><label for="textfield"></label>
+      <input type="text" name="stock" id="textfield" value="{{ data[4] }}"  class="form-control"/></td>
+    </tr>
+     <tr>
+      <td colspan="2"><label for="textfield"></label>
+       <center><input name="button" type="submit" id="button" value="Update" class="btn btn-success"/></center></td>
+    </tr>
+  </table>
+</form>
+      <script type="text/javascript" language="JavaScript">
+      function  valid() {
+          var flag=true;
+
+
+{#         var m=document.getElementById("nm").value;#}
+{#         if (m.length<=0){#}
+{#             alert('ll')#}
+{#             flag=false;#}
+
+{#return flags;#}
+      }
+      </script>
+{% endblock %}

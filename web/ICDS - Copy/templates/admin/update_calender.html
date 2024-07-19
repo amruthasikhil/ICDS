@@ -1,0 +1,26 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table width="300" border="1" align="center">
+    <tr>
+      <td height="38">Date</td>
+      <td><label for="textfield"></label>
+      <input type="date" name="date" id="textfield" value="{{ data[1] }}"/></td>
+    </tr>
+    <tr>
+      <td height="48">Program</td>
+      <td><label for="textfield"></label>
+      <input type="date" name="prgm" id="textfield" value="{{ data[2] }}" /></td>
+    </tr>
+    <tr>
+      <td height="93">Details</td>
+      <td><label for="textarea"></label>
+      <textarea name="det" id="textarea" cols="45" rows="5">{{ data[3] }}</textarea></td>
+      
+    </tr>
+    <tr>
+      <td colspan="2"><center><input type="submit" name="button" id="button" value="Submit" /></center></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

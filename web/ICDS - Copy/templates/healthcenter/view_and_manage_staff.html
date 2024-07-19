@@ -1,0 +1,80 @@
+{% extends "healthcenter/health index.html" %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/selectsta">
+
+  <h3>STAFF DETAILS</h3>
+
+
+  <table class="pull-right">
+    
+    <tr>
+      <td ><input type="text" name="name" id="textfield" class="form-control" />
+      </td>
+        <td> <button type="submit" class="btn btn-primary">
+      <span class="glyphicon glyphicon-search"></span> Search
+    </button><td>
+    </tr>
+  </table>
+
+        <br>
+        <br>
+        <br>
+        <br>
+{% if data|length==0 %}
+      <h5><b><center>Sorry No items found</center></b></h5>
+  {% else %}
+        <table class="table table-striped mb30">
+    <tr>
+      <th width="1%">#</th>
+      <th width="15%">Name</th>
+      <th width="15%">Date of birth</th>
+      <th >Gender</th>
+      <th >Qualification</th>
+      <th>BloodGroup</th>
+      <th>Address</th>
+      <th width="10%">Email</th>
+      <th >Phone</th>
+      <th >Designation</th>
+       <th >type</th>
+        <th width=>&nbsp;</th>
+      <th width= >&nbsp;</th>
+    </tr>
+    <tr>
+        {% for d in data %}
+      <td>&nbsp;{{ loop.index}}</td>
+      <td><img src="{{  d[16]}}" width="50" height="50" />{{ d[3] }}</td>
+      <td>&nbsp;{{ d[4] }}</td>
+      <td>&nbsp;{{ d[5] }}</td>
+      <td>&nbsp;{{ d[14] }}</td>
+      <td>&nbsp;{{ d[6] }}</td>
+      <td>{{ d[7] }}(HO)<BR/>{{ d[8] }}(PO)<br/>{{ d[9] }}<br/>{{ d[10] }}<br/>{{ d[11] }}</td>
+      <td>{{ d[12] }}&nbsp;</td>
+      <td>{{ d[13] }}&nbsp;</td>
+      <td>&nbsp;{{ d[15] }}</td>
+        <td>{{ d[17] }}</td>
+      <td><a href="/upstaff/{{ d[0] }}" class="btn btn-info">Edit</a></td>
+      <td><a href="/delostaff/{{ d[0] }}" onclick="return msg()" class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+  {% endif %}
+  </table>
+</form>
+</body>
+</html>
+<script type="text/javascript" language="JavaScript">
+    function msg() {
+        var flag=true;
+         var a=confirm("wants to delete");
+        if(a==true){
+            flag=true;
+        }
+        else {
+            flag=false
+
+        }
+      return flag;
+    }
+</script>
+{% endblock %}
