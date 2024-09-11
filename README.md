@@ -4,9 +4,9 @@ hospitals, and users. Users can access the platform through both mobile 📱 and
 
 Key Features
 Admin Section 🛠️
-    Manage users and roles (healthcare professionals, anganwadi workers, hospital staff).
-    Oversee the operations of anganwadi centers and healthcare institutions.
-    Generate reports 📊 and track the performance of services provided.
+    * Manage users and roles (healthcare professionals, anganwadi workers, hospital staff).
+    * Oversee the operations of anganwadi centers and healthcare institutions.
+    * Generate reports 📊 and track the performance of services provided.
 Anganwadi Section 🏫
     Track nutrition programs for both mothers and children.
     Monitor attendance and participation in child development programs.
