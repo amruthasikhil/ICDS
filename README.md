@@ -26,11 +26,11 @@ User (Mobile and Web) 👩‍⚕️📱💻
     Track nutrition intake and health progress for both mothers and children.
     Access educational content on childcare, health tips, and resources for new mothers .
 
-Technologies Used
-    Frontend 🌐: HTML, CSS, Bootstrap, JavaScript
-    Backend 💻: Flask (Python)
-    Database 🗄️: SQLlog
-    Server 🌍: WAMP (Windows, Apache, MySQL, PHP)
-    IDE 🛠️: PyCharm
-    APIs 🔗: RESTful services for mobile and web communication
+**Technologies Used**
+Frontend 🌐: HTML, CSS, Bootstrap, JavaScript
+Backend 💻: Flask (Python)
+Database 🗄️: SQLlog
+Server 🌍: WAMP (Windows, Apache, MySQL, PHP)
+IDE 🛠️: PyCharm
+APIs 🔗: RESTful services for mobile and web communication
    
