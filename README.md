@@ -4,23 +4,23 @@ hospitals, and users. Users can access the platform through both mobile 📱 and
 
 **Key Features**
 
-Admin Section 🛠️
+**Admin Section 🛠️**
     * Manage users and roles (healthcare professionals, anganwadi workers, hospital staff).
     * Oversee the operations of anganwadi centers and healthcare institutions.
     * Generate reports 📊 and track the performance of services provided.
-Anganwadi Section 🏫
+**Anganwadi Section 🏫**
     Track nutrition programs for both mothers and children.
     Monitor attendance and participation in child development programs.
     Provide educational resources and healthcare tips to mothers.
-Healthcare Center 🏥
+**Healthcare Center 🏥**
     Schedule and manage appointments for maternal and child health check-ups .
     Record and maintain the health data of mothers and infants.
     Monitor vaccination schedules and follow-up visits.
-Hospital 🏨
+**Hospital 🏨**
     Manage childbirth records, emergency visits , and inpatient data.
     Ensure postnatal care through regular health check-ups and appointments.
     Coordinate with healthcare centers for ongoing support after childbirth.
-User (Mobile and Web) 👩‍⚕️📱💻
+**User (Mobile and Web) 👩‍⚕️📱💻**
     Users can access their personal healthcare data through both mobile and web platforms.
     Receive notifications for upcoming appointments, vaccination schedules, and health tips.
     Track nutrition intake and health progress for both mothers and children.
