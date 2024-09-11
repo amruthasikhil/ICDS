@@ -3,23 +3,33 @@ The application provides a centralized platform for managing key services across
 hospitals, and users. Users can access the platform through both mobile 📱 and web 💻 applications.
 
 **Key Features**
-
 Admin Section 🛠️**
     * Manage users and roles (healthcare professionals, anganwadi workers, hospital staff).
     * Oversee the operations of anganwadi centers and healthcare institutions.
     * Generate reports 📊 and track the performance of services provided.
+
+
+
 **Anganwadi Section 🏫**
     Track nutrition programs for both mothers and children.
     Monitor attendance and participation in child development programs.
     Provide educational resources and healthcare tips to mothers.
+
+
+
 **Healthcare Center 🏥**
     Schedule and manage appointments for maternal and child health check-ups .
     Record and maintain the health data of mothers and infants.
     Monitor vaccination schedules and follow-up visits.
+
+
+
 **Hospital 🏨**
     Manage childbirth records, emergency visits , and inpatient data.
     Ensure postnatal care through regular health check-ups and appointments.
     Coordinate with healthcare centers for ongoing support after childbirth.
+
+
 **User (Mobile and Web) 👩‍⚕️📱💻**
     Users can access their personal healthcare data through both mobile and web platforms.
     Receive notifications for upcoming appointments, vaccination schedules, and health tips.
