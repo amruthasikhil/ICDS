@@ -3,7 +3,8 @@ The application provides a centralized platform for managing key services across
 hospitals, and users. Users can access the platform through both mobile 📱 and web 💻 applications.
 
 **Key Features**
-Admin Section 🛠️**
+
+**Admin Section 🛠️****
     * Manage users and roles (healthcare professionals, anganwadi workers, hospital staff).
     * Oversee the operations of anganwadi centers and healthcare institutions.
     * Generate reports 📊 and track the performance of services provided.
