@@ -2,7 +2,7 @@ ICDs (Integrated Child Development Services) is a comprehensive management appli
 The application provides a centralized platform for managing key services across various stakeholders, including the admin, healthcare centers, anganwadis,
 hospitals, and users. Users can access the platform through both mobile 📱 and web 💻 applications.
 
-Key Features
+**Key Features**
 Admin Section 🛠️
     * Manage users and roles (healthcare professionals, anganwadi workers, hospital staff).
     * Oversee the operations of anganwadi centers and healthcare institutions.
